@@ -211,7 +211,6 @@ div {
 ```
 
 ### 结语
-
 更多特性可自行查看 [SASS 官网](http://sass-lang.com/)，和 SASS 类似的有 LESS ，可百度了解。另外还有一个强悍的 SASS 工具库 Compass
 
 ### 参考资料
