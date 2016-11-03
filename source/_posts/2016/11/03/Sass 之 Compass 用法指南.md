@@ -231,6 +231,8 @@ $icons-spacing : 30px;
 //也可以生成带伪类的样式 图片命名 如 a.png 和 a_hover.png
 ```
 
-### 参考资料
+### 结语
+通过 sass 和 less 等这种 css 预处理器，可以让我们更高效多书写样式。另外要提一下的就是 [postcss](https://github.com/postcss/postcss) 相关介绍和教程可跳阅读 <http://www.w3cplus.com/blog/tags/516.html>
 
+### 参考资料
 <http://www.ruanyifeng.com/blog/2012/11/compass.html>
