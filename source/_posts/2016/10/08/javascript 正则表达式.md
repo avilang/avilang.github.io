@@ -136,3 +136,4 @@ console.log(output.join("\n"));
 <https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions>
 <http://es6.ruanyifeng.com/#docs/regex>
 <http://javascript.ruanyifeng.com/grammar/string.html>
+<http://fxck.it/post/50558232873>
