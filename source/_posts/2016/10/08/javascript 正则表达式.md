@@ -138,3 +138,4 @@ console.log(output.join("\n"));
 <http://es6.ruanyifeng.com/#docs/regex>
 <http://javascript.ruanyifeng.com/grammar/string.html>
 <http://fxck.it/post/50558232873>
+<https://segmentfault.com/a/1190000008088937>
