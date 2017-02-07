@@ -565,6 +565,8 @@ oP.dispatchEvent(myEvent);
 
 这里只是简要的说明了有关事件的部分知识点，相关更多的介绍如：节点的操作，CSS 操作等 DOM 的相关知识可详细阅读 [阮一峰 - DOM](http://javascript.ruanyifeng.com/#toc4)
 
+PS:低版本IE不支持事件捕获
+
 
 #### 定时器
 
