@@ -88,7 +88,7 @@ tokenize(TOKEN_G, '3x + 4')
 
 ### 结语
 
-以下给出一个简单列子，说明了一些正值表达式的用途。本文中许多有关 javascript 正则中的知识点并未介绍到，如断言、组匹配等。
+以下给出简单列子，说明了一些正值表达式的用途。本文中许多有关 javascript 正则中的知识点并未介绍到，如断言、组匹配、反向引用等。
 
 ```js
 var names = "Harry Trump ;Fred Barney; Helen Rigby ; Bill Abel ; Chris Hand ";
@@ -130,6 +130,13 @@ for (i = 0, len = bySurnameList.length; i < len; i++){
 output.push("---------- End");
 
 console.log(output.join("\n"));
+```
+
+```js
+// 问：请找出所有在 3 个连续相同字符前的相邻 3 个连续相同字符
+var s = 'aaalllsss0tAAAnnn999';
+var re = /(\w)\1{2}(?=(\w)\2{2})/g;
+console.log(s.match(re));  // [ 'aaa', 'lll', 'AAA', 'nnn' ]
 ```
 
 ### 相关阅读
