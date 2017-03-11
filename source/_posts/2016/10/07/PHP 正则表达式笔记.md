@@ -1,7 +1,6 @@
 ---
 title: PHP 正则表达式笔记
 date: 2016-10-07
-categories: php
 ---
 
 ### 什么是正则表达式
@@ -237,9 +236,9 @@ PHP手册中的描述：
 
 **提示：**一般而言，对于同样的功能，正则表达式函数运行效率要低于字符串函数。如果应用程序较简单，那么就用字符串表达式。但是，对于可以通过单个正则表达式执行的任务来说，如果使用多个字符串函数，则是不对的。---- 摘自《PHP 和 MySQL Web 开发》一书。
 
-### 参考资料
-<http://php.net/manual/zh/book.pcre.php>
-<https://msdn.microsoft.com/zh-cn/library/d9eze55x%28v=vs.80%29.aspx>
-<http://deerchao.net/tutorials/regex/regex.htm>
-<http://tool.chinaz.com/regex/>
-<http://www.regexlab.com/zh/regref.htm>
+### 相关阅读
+
+- [PHP - 正则表达式(兼容 Perl)](<http://php.net/manual/zh/book.pcre.php)
+- [正则表达式](https://msdn.microsoft.com/zh-cn/library/d9eze55x%28v=vs.80%29.aspx)
+- [正则表达式30分钟入门教程](http://deerchao.net/tutorials/regex/regex.htm)
+- [揭开正则表达式的神秘面纱](http://www.regexlab.com/zh/regref.htm)

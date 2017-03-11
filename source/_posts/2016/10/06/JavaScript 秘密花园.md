@@ -1,7 +1,6 @@
 ---
 title: JavaScript 秘密花园
 date: 2016-10-06
-categories: javascript
 ---
 
 ### 前言

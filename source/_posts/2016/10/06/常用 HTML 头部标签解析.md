@@ -1,7 +1,6 @@
 ---
 title: 常用 HTML 头部标签解析
 date: 2016-10-06
-categories: html
 ---
 
 作为一名 Web 开发者，对头部标签必须要了解，本篇着重介绍一些我们容易忽视和用错的头部标签，特别是 iOS 等针对移动设备的一些标签。了解这些标签的意义，写出满足自己需求的 head 头标签，是本文的目的。本文以[一丝的文章](https://github.com/yisibl/blog/issues/1)和 FEX 的 [HTML head 头标签](http://fex.baidu.com/blog/2014/10/html-head-tags/)为基础，介绍常用的 head 中各个标签、元素的意义。
@@ -470,5 +469,6 @@ UC 浏览器提供两种排版模式，分别是适屏模式（fitscreen）及�
 ```
 
 ### 相关阅读
-<http://www.smallni.com/element-nesting/>
-<http://www.cs.tut.fi/~jkorpela/html/strict.html>
+
+- [WEB标准系列-HTML元素嵌套](http://www.smallni.com/element-nesting/)
+- [Allowed nesting of elements in HTML 4 Strict and XHTML 1.0 Strict](http://www.cs.tut.fi/~jkorpela/html/strict.html)

@@ -74,14 +74,20 @@ cache-control：缓存控制
 
 其中一个重要的 HTTP 响应头 Content-Type 服务器上的每个资源都可以以不同的格式返回给客户端，如 HTML、XML 或 JSON 等；通过在 Content-Type 里设置如 text/html 这样的互联网媒体类型，可以告知客户端，服务器给出的响应格式是什么。常用的媒体类型可移步阅读 [互联网媒体类型](https://zh.wikipedia.org/wiki/%E4%BA%92%E8%81%94%E7%BD%91%E5%AA%92%E4%BD%93%E7%B1%BB%E5%9E%8B)
 
+### 拓展知识
 
-### 参考资料
-<https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE>  
-<https://zh.wikipedia.org/wiki/WebSocket>  
-<https://zh.wikipedia.org/wiki/Comet_%28web%E6%8A%80%E6%9C%AF%29>  
-<https://zh.wikipedia.org/wiki/%E6%8E%A8%E9%80%81%E6%8A%80%E6%9C%AF>  
-<http://www.runoob.com/http/http-tutorial.html>  
-<http://blog.csdn.net/u012545279/article/details/17579155>  
-<http://blog.csdn.net/zfrong/article/details/6070608>  
-<https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching?hl=zh-cn>  
-<http://www.alloyteam.com/2012/03/web-cache-1-web-cache-overview/>
+[HTTP 长连接说明](https://www.qcloud.com/document/product/214/4149)，还有文中提到的“TCP\IP三次握手连接”
+其中还有长轮询、服务器发送事件、WebSocket等知识点都与 HTTP 相关，在这就不拓展开了，读者可自行谷歌
+
+
+### 相关阅读
+- [超文本传输协议](https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE)
+- [WebSocket](https://zh.wikipedia.org/wiki/WebSocket)
+- [Comet (web技术)](https://zh.wikipedia.org/wiki/Comet_%28web%E6%8A%80%E6%9C%AF%29)
+- [推送技术](https://zh.wikipedia.org/wiki/%E6%8E%A8%E9%80%81%E6%8A%80%E6%9C%AF)
+- [HTTP 教程](http://www.runoob.com/http/http-tutorial.html)
+- [写给前端的http详解](http://blog.csdn.net/u012545279/article/details/17579155)
+- [HTTP协议头部与Keep-Alive模式详解](http://blog.csdn.net/zfrong/article/details/6070608)
+- [HTTP 缓存](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching?hl=zh-cn)
+- [Web缓存机制系列](http://www.alloyteam.com/2012/03/web-cache-1-web-cache-overview/)
+- [HTTP持久连接](https://zh.wikipedia.org/wiki/HTTP%E6%8C%81%E4%B9%85%E8%BF%9E%E6%8E%A5)

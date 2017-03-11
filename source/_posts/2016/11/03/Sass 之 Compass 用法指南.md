@@ -1,7 +1,6 @@
 ---
 title: Sass 之 Compass 用法指南
 date: 2016-11-03
-categories: sass
 ---
 
 ### 什么是Compass
@@ -234,5 +233,6 @@ $icons-spacing : 30px;
 ### 结语
 通过 sass 和 less 等这种 css 预处理器，可以让我们更高效多书写样式。另外要提一下的就是 [postcss](https://github.com/postcss/postcss) 相关介绍和教程可跳阅读 <http://www.w3cplus.com/blog/tags/516.html>
 
-### 参考资料
-<http://www.ruanyifeng.com/blog/2012/11/compass.html>
+### 相关阅读
+
+- [阮一峰 - Compass 用法指南](http://www.ruanyifeng.com/blog/2012/11/compass.html)

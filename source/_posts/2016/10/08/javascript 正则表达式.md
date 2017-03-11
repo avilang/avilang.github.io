@@ -1,7 +1,6 @@
 ---
 title: javascript 正则表达式
 date: 2016-10-08
-categories: javascript
 ---
 
 ### 前言
@@ -141,8 +140,8 @@ console.log(s.match(re));  // [ 'aaa', 'lll', 'AAA', 'nnn' ]
 
 ### 相关阅读
 
-<https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions>
-<http://es6.ruanyifeng.com/#docs/regex>
-<http://javascript.ruanyifeng.com/grammar/string.html>
-<http://fxck.it/post/50558232873>
-<https://segmentfault.com/a/1190000008088937>
+- [javascript - 中的正则表达式](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions)
+- [阮一峰 - 正则的扩展](http://es6.ruanyifeng.com/#docs/regex)
+- [阮一峰 - 字符串](http://javascript.ruanyifeng.com/grammar/string.html)
+- [正则表达式之：零宽断言](http://fxck.it/post/50558232873)
+- [JS正则表达式一条龙讲解](https://segmentfault.com/a/1190000008088937)

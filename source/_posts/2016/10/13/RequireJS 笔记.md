@@ -1,7 +1,6 @@
 ---
 title: RequireJS 笔记
 date: 2016-10-13
-categories: javascript
 ---
 
 ### 概述
@@ -171,10 +170,12 @@ node r.js -o build.js
 例子中有对上文内容的一些补充，建议详细阅读代码。大家可点击 [例子](https://github.com/avilang/experience/tree/master/learn-requirejs) 打开看看，留意控制台的输出，注意这里为了演示就没有对 js 进行打包。
 
 
-### 参考资料
+### 相关阅读
 
-<http://requirejs.org/>
-<http://www.requirejs.cn/>
-<http://javascript.ruanyifeng.com/tool/requirejs.html>
-<http://leeluolee.github.io/2014/10/19/write-requirejs-plugin/>
-<http://www.cnblogs.com/lhb25/p/requirejs-ptimizer-using.html>
+- [requirejs 官网](http://requirejs.org/)
+- [requirejs 中文官网](http://www.requirejs.cn/)
+- [RequireJS 和 AMD 规范](http://javascript.ruanyifeng.com/tool/requirejs.html)
+- [requirejs的插件介绍与制作](http://leeluolee.github.io/2014/10/19/write-requirejs-plugin/)
+- [RequireJS Optimizer 的使用和配置方法](http://www.cnblogs.com/lhb25/p/requirejs-ptimizer-using.html)
+- [SeaJS 与 RequireJS 最大的区别](https://www.douban.com/note/283566440/)
+- [AMD 的 CommonJS wrapping](https://imququ.com/post/amd-simplified-commonjs-wrapping.html)

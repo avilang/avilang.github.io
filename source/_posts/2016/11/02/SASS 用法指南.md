@@ -1,10 +1,9 @@
 ---
 title: SASS 用法指南
 date: 2016-11-02
-categories: sass
 ---
 
-### 什么是SASS
+### 什么是 SASS
 
 SASS 是一种 CSS 开发工具，提供了许多便利的写法，使得 CSS 编写变得简单和可维护。本文总结了 SASS 的常用用法，高手可略过，也可参考[官方文档](http://sass-lang.com/documentation/file.SASS_REFERENCE.html)
 
@@ -213,8 +212,9 @@ div {
 ### 结语
 更多特性可自行查看 [SASS 官网](http://sass-lang.com/)，和 SASS 类似的有 LESS ，可百度了解。另外还有一个强悍的 SASS 工具库 Compass
 
-### 参考资料
-<http://www.ruanyifeng.com/blog/2012/06/sass.html>
-<http://www.w3cplus.com/sassguide/>
-<http://www.sasschina.com/>
-<http://sass.bootcss.com/>
+### 相关阅读
+
+- [阮一峰 - SASS用法指南](http://www.ruanyifeng.com/blog/2012/06/sass.html)
+- [sass 入门](http://www.w3cplus.com/sassguide/)
+- [sass 中文网](http://www.sasschina.com/)
+- [sass 中文文档](http://sass.bootcss.com/)

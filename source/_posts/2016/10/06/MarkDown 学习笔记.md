@@ -9,7 +9,7 @@ MarkDown是一种适用于网络的书写语言，可以帮助你快速书写文
 
 可以利用 Chrome 浏览器，点击打印另存为 PDF 格式文件，这样分享给其他人阅读。
 
-### MarkDown语法说明
+### MarkDown 语法
 
 #### 一、标题
 
@@ -180,5 +180,6 @@ MarkDown 支持以比较简短的自动链接形式来处理网址和电子邮�
 <address@example.com>
 ```
 
-### 参考资料
-<http://www.appinn.com/markdown/index.html>
+### 相关阅读
+
+- [Markdown 语法说明](http://www.appinn.com/markdown/index.html)

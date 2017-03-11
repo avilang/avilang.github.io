@@ -1,7 +1,6 @@
 ---
 title: javascript 随笔
 date: 2016-11-04
-categories: javascript
 ---
 
 ### 前言
