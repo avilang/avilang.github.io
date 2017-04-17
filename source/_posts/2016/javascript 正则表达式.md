@@ -145,3 +145,4 @@ console.log(s.match(re));  // [ 'aaa', 'lll', 'AAA', 'nnn' ]
 - [阮一峰 - 字符串](http://javascript.ruanyifeng.com/grammar/string.html)
 - [正则表达式之：零宽断言](http://fxck.it/post/50558232873)
 - [JS正则表达式一条龙讲解](https://segmentfault.com/a/1190000008088937)
+- [正则表达式前端使用手册](http://louiszhai.github.io/2016/06/13/regexp/)
