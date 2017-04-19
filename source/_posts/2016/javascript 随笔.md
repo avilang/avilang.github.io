@@ -456,7 +456,10 @@ Number.__proto__ === Object.__proto__  // true
 String.__proto__ === Object.__proto__  // true
 ```
 
-相关文章可查阅 [JavaScript instanceof 运算符深入剖析](http://www.ibm.com/developerworks/cn/web/1306_jiangjj_jsinstanceof/) 和 [JavaScript 继承](http://javascript.ruanyifeng.com/oop/inheritance.html)
+相关文章可查阅 
+[JavaScript instanceof 运算符深入剖析](http://www.ibm.com/developerworks/cn/web/1306_jiangjj_jsinstanceof/) 
+[JavaScript 继承](http://javascript.ruanyifeng.com/oop/inheritance.html) 
+[从__proto__和prototype来深入理解JS对象和原型链](https://github.com/creeperyang/blog/issues/9)
 
 
 #### Event 对象
