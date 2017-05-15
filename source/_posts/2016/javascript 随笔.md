@@ -818,3 +818,23 @@ Promise 对象是 CommonJS 工作组提出的一种规范，目的是为异步�
 <http://www.alloyteam.com/2015/11/deep-in-web-worker/>
 <http://www.ibm.com/developerworks/cn/web/1112_sunch_webworker/index.html>
 
+#### 值传递 OR 引用传递
+
+```js
+function changeStuff(a, b, c) {
+  a = a * 10;
+  b.item = "changed";
+  c = {item: "changed"};
+}
+
+var num = 10;
+var obj1 = {item: "unchanged"};
+var obj2 = {item: "unchanged"};
+
+changeStuff(num, obj1, obj2);
+
+console.log(num);
+console.log(obj1.item);    
+console.log(obj2.item);
+```
+详细可阅读[Is JavaScript a pass-by-reference or pass-by-value language?](http://stackoverflow.com/questions/518000/is-javascript-a-pass-by-reference-or-pass-by-value-language)
