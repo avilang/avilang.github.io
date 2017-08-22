@@ -84,6 +84,8 @@ s.p  // undefined
 
 双精度浮点数的小数部分最多支持 52 位，所以两者相加之后得到这么一串 `0.0100110011001100110011001100110011001100110011001100` 因浮点数小数位的限制而截断的二进制数字，这时候，我们再把它转换为十进制，就成了 0.30000000000000004
 
+相关阅读：<http://www.chengfeilong.com/toFixed>
+
 #### 标记语句 (labeled statement)
 
 通常和 break 或 continue 语句一起使用。标记就是在一条语句前面加个可以引用的标识符，任何不是保留关键字的 javascript 标识符。
@@ -456,9 +458,9 @@ Number.__proto__ === Object.__proto__  // true
 String.__proto__ === Object.__proto__  // true
 ```
 
-相关文章可查阅 
-[JavaScript instanceof 运算符深入剖析](http://www.ibm.com/developerworks/cn/web/1306_jiangjj_jsinstanceof/) 
-[JavaScript 继承](http://javascript.ruanyifeng.com/oop/inheritance.html) 
+相关文章可查阅
+[JavaScript instanceof 运算符深入剖析](http://www.ibm.com/developerworks/cn/web/1306_jiangjj_jsinstanceof/)
+[JavaScript 继承](http://javascript.ruanyifeng.com/oop/inheritance.html)
 [从__proto__和prototype来深入理解JS对象和原型链](https://github.com/creeperyang/blog/issues/9)
 
 
