@@ -1807,7 +1807,9 @@ var b = fun(0).fun(1).fun(2).fun(3);  // b : undefined, 0, 1, 2
 var c = fun(0).fun(1);  c.fun(2);  c.fun(3);  // c : undefined, 0, 1, 1
 ```
 
-### 深入学习 javascript
-强烈建议阅读以下给出的文章，让你对闭包，作用域等有更深刻的理解。
-[goddyzhao](http://goddyzhao.tumblr.com/JavaScript-Internal)
+### 相关阅读
+[深入学习 javascript](http://goddyzhao.tumblr.com/JavaScript-Internal)
 [ECMA-262-3 in detail In dmitrysoshnikov.com](http://dmitrysoshnikov.com/)
+[pjs](https://github.com/jneen/pjs)
+[js.class](https://github.com/dkraczkowski/js.class)
+[Simple JavaScript Inheritance](https://johnresig.com/blog/simple-javascript-inheritance/)
