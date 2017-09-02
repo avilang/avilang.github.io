@@ -419,7 +419,7 @@ JavaScript 原型继承机制：在原型继承结构里面，规范中用 `[[Pr
 
 原型继承图
 
-![Alt text](/myimages/2016-11-04_01.jpg "JavaScript 原型链")
+![](/myimages/2016-11-04_01.jpg "JavaScript 原型链")
 
 下面简要分析下 `console.log(Foo instanceof Foo)`
 
