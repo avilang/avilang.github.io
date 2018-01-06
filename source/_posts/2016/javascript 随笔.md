@@ -839,4 +839,11 @@ console.log(num);
 console.log(obj1.item);    
 console.log(obj2.item);
 ```
+
+> If it was pure pass by value, then changing `obj1.item` would have no effect on the `obj1` outside of the function. If it was pure pass by reference, then everything would have changed. `num` would be `100`, and `obj2.item` would read `changed`.
+
+> Instead, the situation is that the item passed in is passed by value. But the item that is passed by value is itself a reference. Technically, this is called [call-by-sharing](https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_sharing).
+
+> In practical terms, this means that if you change the parameter itself (as with `num` and `obj2`), that won't affect the item that was fed into the parameter. But if you change the INTERNALS of the parameter, that will propagate back up (as with `obj1`).
+
 详细可阅读[Is JavaScript a pass-by-reference or pass-by-value language?](http://stackoverflow.com/questions/518000/is-javascript-a-pass-by-reference-or-pass-by-value-language)

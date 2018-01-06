@@ -16,5 +16,11 @@
     "hexo-renderer-marked": "^0.2.10",
     "hexo-renderer-stylus": "^0.3.1",
     "hexo-server": "^0.2.0"
+  },
+  "scripts": {
+    "start": "hexo server",
+    "clean": "hexo clean",
+    "generate": "hexo generate",
+    "deploy": "hexo deploy"
   }
 }
