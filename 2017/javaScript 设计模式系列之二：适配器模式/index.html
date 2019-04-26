@@ -1,0 +1,564 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="介绍适配器模式将一个类的接口转接成用户所期待的，有助于避免大规模改写现有客户代码。  In software engineering, the adapter pattern is a software design pattern that allows the interface of an existing class to be used from another interface. I">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javaScript 设计模式系列之二：适配器模式">
+<meta property="og:url" content="http://avilang.me/2017/javaScript 设计模式系列之二：适配器模式/index.html">
+<meta property="og:site_name" content="Hello avilang">
+<meta property="og:description" content="介绍适配器模式将一个类的接口转接成用户所期待的，有助于避免大规模改写现有客户代码。  In software engineering, the adapter pattern is a software design pattern that allows the interface of an existing class to be used from another interface. I">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-26T06:42:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javaScript 设计模式系列之二：适配器模式">
+<meta name="twitter:description" content="介绍适配器模式将一个类的接口转接成用户所期待的，有助于避免大规模改写现有客户代码。  In software engineering, the adapter pattern is a software design pattern that allows the interface of an existing class to be used from another interface. I">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://avilang.me/2017/javaScript 设计模式系列之二：适配器模式/"/>
+
+  <title> javaScript 设计模式系列之二：适配器模式 | Hello avilang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hello avilang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                javaScript 设计模式系列之二：适配器模式
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-08T00:00:00+08:00" content="2017-06-08">
+              2017-06-08
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p><a href="https://zh.wikipedia.org/wiki/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F" target="_blank" rel="noopener">适配器模式</a>将一个类的接口转接成用户所期待的，有助于避免大规模改写现有客户代码。</p>
+<blockquote>
+<p>In software engineering, the adapter pattern is a software design pattern that allows the interface of an existing class to be used from another interface. It is often used to make existing classes work with others without modifying their source code. </p>
+</blockquote>
+<p>例：电源转换器，我们国家的电器使用普通的扁平两项或三项插头，而去外国的话，使用的标准就不一样了，比如德国，使用的是德国标准，是两项圆头的插头。如果去德国旅游，那么我们使用的手机充电器插头无法插到德国的插排中去，那就意味着我们无法给手机充电。怎样解决这个问题呢？只要使用一个电源转化器就行了。</p>
+<h3 id="例子：购物车"><a href="#例子：购物车" class="headerlink" title="例子：购物车"></a>例子：购物车</h3><h4 id="Shopping-Cart-Example-with-Local-Storage"><a href="#Shopping-Cart-Example-with-Local-Storage" class="headerlink" title="Shopping Cart Example with Local Storage"></a>Shopping Cart Example with Local Storage</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ShoppingCart</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">ShoppingCart.prototype.add = <span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> items = localStorage.getItem(<span class="string">'cart'</span>);</span><br><span class="line">  <span class="keyword">if</span> (items) &#123;</span><br><span class="line">    items = <span class="built_in">JSON</span>.parse(items);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (items[item.id]) &#123;</span><br><span class="line">      items[item.id].quantity += <span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      item.quantity = <span class="number">1</span>;</span><br><span class="line">      items[item.id] = item;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    items = &#123;&#125;;</span><br><span class="line">    item.quantity = <span class="number">1</span>;</span><br><span class="line">    items[item.id] = item;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  items = <span class="built_in">JSON</span>.stringify(items);</span><br><span class="line">  localStorage.setItem(<span class="string">'cart'</span>, items);</span><br><span class="line">  <span class="keyword">return</span> item;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cart = <span class="keyword">new</span> ShoppingCart();</span><br><span class="line">cart.add(&#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">product</span>: <span class="string">'movie 1'</span> &#125;); <span class="comment">// quantity is 1 for product 1</span></span><br><span class="line">cart.add(&#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">product</span>: <span class="string">'movie 2'</span> &#125;); <span class="comment">// quantity is 1 for product 2</span></span><br><span class="line">cart.add(&#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">product</span>: <span class="string">'movie 1'</span> &#125;); <span class="comment">// quantity is 2 for product 1</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中通过 localStorage 存储购物车的数据。若此时改变需求，需要通过服务器端存储，这时你不得不改变现有的代码，此时更好的实现方式时引入”适配器”。</p>
+<h4 id="Shopping-Cart-Example-with-Adapters"><a href="#Shopping-Cart-Example-with-Adapters" class="headerlink" title="Shopping Cart Example with Adapters"></a>Shopping Cart Example with Adapters</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  jQuery deferreds and promises</span></span><br><span class="line"><span class="keyword">var</span> localStorageAdapter = &#123;</span><br><span class="line">  findAll: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> deferred = <span class="keyword">new</span> $.Deferred();</span><br><span class="line">    <span class="keyword">var</span> items = localStorage.getItem(<span class="string">'cart'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (items) &#123;</span><br><span class="line">      items = <span class="built_in">JSON</span>.parse(items);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    deferred.resolve(items);</span><br><span class="line">    <span class="keyword">return</span> deferred.promise();</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  save: <span class="function"><span class="keyword">function</span>(<span class="params">items</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> deferred = <span class="keyword">new</span> $.Deferred();</span><br><span class="line"></span><br><span class="line">    items = <span class="built_in">JSON</span>.stringify(items);</span><br><span class="line">    localStorage.setItem(<span class="string">'cart'</span>, items);</span><br><span class="line">    deferred.resolve();</span><br><span class="line">    <span class="keyword">return</span> deferred.promise();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  jQuery deferreds and promises.</span></span><br><span class="line"><span class="keyword">var</span> serverSideAdapter = &#123;</span><br><span class="line">  findAll: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> $.ajax(&#123;</span><br><span class="line">      url: <span class="string">'/shopping-cart'</span></span><br><span class="line">    &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> response.items;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  save: <span class="function"><span class="keyword">function</span>(<span class="params">items</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> $.ajax(&#123;</span><br><span class="line">      url: <span class="string">'/shopping-cart'</span>,</span><br><span class="line">      type: <span class="string">'post'</span>,</span><br><span class="line">      data: &#123;</span><br><span class="line">        items: items</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ShoppingCart</span>(<span class="params">adapter</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.adapter = adapter;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ShoppingCart.prototype.add = <span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> adapter = <span class="keyword">this</span>.adapter;</span><br><span class="line">  <span class="keyword">var</span> deferred = <span class="keyword">new</span> $.Deferred();</span><br><span class="line"></span><br><span class="line">  adapter.findAll().then(<span class="function"><span class="keyword">function</span>(<span class="params">items</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (items) &#123;</span><br><span class="line">      <span class="keyword">if</span> (items[item.id]) &#123;</span><br><span class="line">        items[item.id].quantity += <span class="number">1</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        item.quantity = <span class="number">1</span>;</span><br><span class="line">        items[item.id] = item;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      items = &#123;&#125;;</span><br><span class="line">      item.quantity = <span class="number">1</span>;</span><br><span class="line">      items[item.id] = item;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    adapter.save(items).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      deferred.resolve(item);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> deferred.promise();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// localStorageAdapter</span></span><br><span class="line"><span class="keyword">var</span> cart = <span class="keyword">new</span> ShoppingCart(localStorageAdapter);</span><br><span class="line">cart.add(&#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">product</span>: <span class="string">'movie 1'</span> &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123; &#125;); <span class="comment">// quantity is 1 for product 1</span></span><br><span class="line">cart.add(&#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">product</span>: <span class="string">'movie 2'</span> &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123; &#125;); <span class="comment">// quantity is 1 for product 2</span></span><br><span class="line">cart.add(&#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">product</span>: <span class="string">'movie 1'</span> &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123; &#125;); <span class="comment">// quantity is 2 for product 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// serverSideAdapter</span></span><br><span class="line"><span class="keyword">var</span> cart = <span class="keyword">new</span> ShoppingCart(serverSideAdapter);</span><br></pre></td></tr></table></figure>
+<h3 id="例子：日志记录"><a href="#例子：日志记录" class="headerlink" title="例子：日志记录"></a>例子：日志记录</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当前 logger </span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">BadLogger</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">var</span> LOG_HEADER = <span class="string">'['</span> + name + <span class="string">']:'</span>;</span><br><span class="line">    <span class="keyword">var</span> self = <span class="keyword">this</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        getName: <span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> self.name;</span><br><span class="line">        &#125;,</span><br><span class="line">        getType: <span class="function"><span class="keyword">function</span> <span class="title">getType</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">'BadLogger'</span>;</span><br><span class="line">        &#125;,</span><br><span class="line">        information: <span class="function"><span class="keyword">function</span> <span class="title">information</span>(<span class="params">message</span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.info(LOG_HEADER + message + <span class="string">'- INFORMATION'</span> );</span><br><span class="line">        &#125;,</span><br><span class="line">        debg: <span class="function"><span class="keyword">function</span> <span class="title">debg</span>(<span class="params">message</span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(LOG_HEADER + message + <span class="string">'- DEBG'</span>);</span><br><span class="line">        &#125;,</span><br><span class="line">        w: <span class="function"><span class="keyword">function</span> <span class="title">w</span>(<span class="params">message</span>) </span>&#123; <span class="comment">// w stands for warning.</span></span><br><span class="line">            <span class="built_in">console</span>.warn(LOG_HEADER + message + <span class="string">'- W'</span> );</span><br><span class="line">        &#125;,</span><br><span class="line">        err: <span class="function"><span class="keyword">function</span> <span class="title">err</span>(<span class="params">message</span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.error(LOG_HEADER + message+ <span class="string">'- ERR'</span> );</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;  </span><br><span class="line">    getLogger: BadLogger</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 另一个 logger</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ShortLogger</span>(<span class="params">name</span>) </span>&#123;  </span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">var</span> LOG_HEADER = <span class="string">'['</span> + name + <span class="string">']'</span>;</span><br><span class="line">    <span class="keyword">var</span> self = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">var</span> getTime = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'['</span> + <span class="keyword">new</span> <span class="built_in">Date</span>().toISOString() + <span class="string">']'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        getName: <span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> self.name;</span><br><span class="line">        &#125;,</span><br><span class="line">        getType: <span class="function"><span class="keyword">function</span> <span class="title">getType</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">'ShortLogger'</span>;</span><br><span class="line">        &#125;,</span><br><span class="line">        i: <span class="function"><span class="keyword">function</span> <span class="title">i</span>(<span class="params">message</span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.info(LOG_HEADER + getTime() + <span class="string">'[I]: '</span> + message);</span><br><span class="line">        &#125;,</span><br><span class="line">        d: <span class="function"><span class="keyword">function</span> <span class="title">d</span>(<span class="params">message</span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(LOG_HEADER + getTime() + <span class="string">'[D]: '</span> + message);</span><br><span class="line">        &#125;,</span><br><span class="line">        w: <span class="function"><span class="keyword">function</span> <span class="title">w</span>(<span class="params">message</span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.warn(LOG_HEADER + getTime() + <span class="string">'[W]: '</span> + message);</span><br><span class="line">        &#125;,</span><br><span class="line">        e: <span class="function"><span class="keyword">function</span> <span class="title">e</span>(<span class="params">message</span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.error(LOG_HEADER + getTime() + <span class="string">'[E]: '</span> + message);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;  </span><br><span class="line">    getLogger: ShortLogger</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ShortLogger = <span class="built_in">require</span>(<span class="string">'./ShortLogger'</span>);  </span><br><span class="line"><span class="keyword">var</span> BadLogger = <span class="built_in">require</span>(<span class="string">'./BadLogger'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">LoggerAdapter</span>(<span class="params">loggerObj</span>) </span>&#123;  </span><br><span class="line">    <span class="keyword">if</span> (!loggerObj) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="built_in">Error</span>(<span class="string">'Parameter [loggerObj] is not defined.'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'[LoggerAdapter] is using Logger with name: '</span> + loggerObj.getName());</span><br><span class="line">    <span class="keyword">var</span> CONSTANTS = &#123;</span><br><span class="line">        DEBUG: <span class="string">'DEBUG'</span>,</span><br><span class="line">        WARNING: <span class="string">'WARNING'</span>,</span><br><span class="line">        INFORMATION: <span class="string">'INFORMATION'</span>,</span><br><span class="line">        ERROR: <span class="string">'ERROR'</span>,</span><br><span class="line">        BAD_LOGGER: <span class="string">'BadLogger'</span>,</span><br><span class="line">        SHORT_LOGGER: <span class="string">'ShortLogger'</span></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">var</span> loggerFunctionMapper = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(loggerObj.getType() === CONSTANTS.BAD_LOGGER) &#123;</span><br><span class="line">        loggerFunctionMapper[CONSTANTS.DEBUG] = loggerObj.debg;</span><br><span class="line">        loggerFunctionMapper[CONSTANTS.INFORMATION] = loggerObj.information;</span><br><span class="line">        loggerFunctionMapper[CONSTANTS.WARNING] = loggerObj.w;</span><br><span class="line">        loggerFunctionMapper[CONSTANTS.ERROR] = loggerObj.err;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (loggerObj.getType() === CONSTANTS.SHORT_LOGGER) &#123;</span><br><span class="line">        loggerFunctionMapper[CONSTANTS.DEBUG] = loggerObj.d;</span><br><span class="line">        loggerFunctionMapper[CONSTANTS.INFORMATION] = loggerObj.i;</span><br><span class="line">        loggerFunctionMapper[CONSTANTS.WARNING] = loggerObj.w;</span><br><span class="line">        loggerFunctionMapper[CONSTANTS.ERROR] = loggerObj.e;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">information</span>(<span class="params">message</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">          loggerFunctionMapper[CONSTANTS.INFORMATION](message);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span>(err) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="built_in">Error</span>(<span class="string">'No implementation for Logger: '</span> + loggerObj.toString());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">debug</span>(<span class="params">message</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">          loggerFunctionMapper[CONSTANTS.DEBUG](message);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span>(err) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="built_in">Error</span>(<span class="string">'No implementation for Logger: '</span> + loggerObj.toString());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">...</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        debug: debug,</span><br><span class="line">        information: information,</span><br><span class="line">        warning: warning,</span><br><span class="line">        error: error</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;  </span><br><span class="line">    LoggerAdapter: LoggerAdapter</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ShortLogger = <span class="built_in">require</span>(<span class="string">'./ShortLogger'</span>);  </span><br><span class="line"><span class="keyword">var</span> BadLogger = <span class="built_in">require</span>(<span class="string">'./BadLogger'</span>);  </span><br><span class="line"><span class="keyword">var</span> LoggerAdapter = <span class="built_in">require</span>(<span class="string">'./LoggerAdapter'</span>);  </span><br><span class="line"><span class="keyword">var</span> shortLog = ShortLogger.getLogger(<span class="string">'ShortLoger'</span>);  </span><br><span class="line"><span class="keyword">var</span> badLogger = BadLogger.getLogger(<span class="string">'BadLogger'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> loggerAdapter = LoggerAdapter.LoggerAdapter(badLogger);  </span><br><span class="line">loggerAdapter.information(<span class="string">'This is logged through LoggerAdapter'</span>);  </span><br><span class="line">loggerAdapter.debug(<span class="string">'This is logged through LoggerAdapter'</span>);  </span><br><span class="line">loggerAdapter.warning(<span class="string">'This is logged through LoggerAdapter'</span>);  </span><br><span class="line">loggerAdapter.error(<span class="string">'This is logged through LoggerAdapter'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> loggerAdapter2 = LoggerAdapter.LoggerAdapter(shortLog);  </span><br><span class="line">loggerAdapter2.information(<span class="string">'Now This is logged through LoggerAdapter'</span>);  </span><br><span class="line">loggerAdapter2.debug(<span class="string">'Now This is logged through LoggerAdapter'</span>);  </span><br><span class="line">loggerAdapter2.warning(<span class="string">'Now This is logged through LoggerAdapter'</span>);  </span><br><span class="line">loggerAdapter2.error(<span class="string">'Now This is logged through LoggerAdapter'</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="相关阅读"><a href="#相关阅读" class="headerlink" title="相关阅读"></a>相关阅读</h3><p><a href="http://thejsguy.com/2015/10/16/the-adapter-pattern-in-javascript.html" target="_blank" rel="noopener">The Adapter Pattern in JavaScript</a><br><a href="http://dealwithjs.io/design-patterns-the-adapter-pattern-in-javascript/" target="_blank" rel="noopener">Design Patterns - The Adapter Pattern in JavaScript</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/javaScript 设计模式系列之一：观察者模式/" rel="next" title="javaScript 设计模式系列之一：观察者模式">
+                <i class="fa fa-chevron-left"></i> javaScript 设计模式系列之一：观察者模式
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/javaScript 设计模式系列之三：代理模式/" rel="prev" title="javaScript 设计模式系列之三：代理模式">
+                javaScript 设计模式系列之三：代理模式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars3.githubusercontent.com/u/10380760?v=3&s=466"
+               alt="avilang" />
+          <p class="site-author-name" itemprop="name">avilang</p>
+          <p class="site-description motion-element" itemprop="description">爱折腾，爱分享，爱学习</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/avilang" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例子：购物车"><span class="nav-number">2.</span> <span class="nav-text">例子：购物车</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Shopping-Cart-Example-with-Local-Storage"><span class="nav-number">2.1.</span> <span class="nav-text">Shopping Cart Example with Local Storage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Shopping-Cart-Example-with-Adapters"><span class="nav-number">2.2.</span> <span class="nav-text">Shopping Cart Example with Adapters</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例子：日志记录"><span class="nav-number">3.</span> <span class="nav-text">例子：日志记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关阅读"><span class="nav-number">4.</span> <span class="nav-text">相关阅读</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">avilang</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

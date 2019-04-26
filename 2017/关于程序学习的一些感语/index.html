@@ -1,0 +1,567 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="关于本文今天狂社区的时候，无意看到一篇关于对 javascript中异步的理解 的文章，也因此无意看到了朴灵评注阮一峰老师的JavaScript 运行机制详解：再谈Event Loop这篇文章，由此说一说自身的一个感受和给初学者一些学习的建议。  朴灵和阮一峰都是大神级人物，不清楚的读者可自行谷歌。  感受上文中提到朴灵评注阮一峰老师的文章,然而文中提到的 javascript 运行机制、Even">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于程序学习的一些感语">
+<meta property="og:url" content="http://avilang.me/2017/关于程序学习的一些感语/index.html">
+<meta property="og:site_name" content="Hello avilang">
+<meta property="og:description" content="关于本文今天狂社区的时候，无意看到一篇关于对 javascript中异步的理解 的文章，也因此无意看到了朴灵评注阮一峰老师的JavaScript 运行机制详解：再谈Event Loop这篇文章，由此说一说自身的一个感受和给初学者一些学习的建议。  朴灵和阮一峰都是大神级人物，不清楚的读者可自行谷歌。  感受上文中提到朴灵评注阮一峰老师的文章,然而文中提到的 javascript 运行机制、Even">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-26T06:42:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于程序学习的一些感语">
+<meta name="twitter:description" content="关于本文今天狂社区的时候，无意看到一篇关于对 javascript中异步的理解 的文章，也因此无意看到了朴灵评注阮一峰老师的JavaScript 运行机制详解：再谈Event Loop这篇文章，由此说一说自身的一个感受和给初学者一些学习的建议。  朴灵和阮一峰都是大神级人物，不清楚的读者可自行谷歌。  感受上文中提到朴灵评注阮一峰老师的文章,然而文中提到的 javascript 运行机制、Even">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://avilang.me/2017/关于程序学习的一些感语/"/>
+
+  <title> 关于程序学习的一些感语 | Hello avilang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hello avilang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                关于程序学习的一些感语
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-21T00:00:00+08:00" content="2017-04-21">
+              2017-04-21
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="关于本文"><a href="#关于本文" class="headerlink" title="关于本文"></a>关于本文</h3><p>今天狂社区的时候，无意看到一篇关于对 <code>javascript中异步的理解</code> 的文章，也因此无意看到了朴灵评注阮一峰老师的<a href="http://www.ruanyifeng.com/blog/2014/10/event-loop.html" target="_blank" rel="noopener">JavaScript 运行机制详解：再谈Event Loop</a>这篇文章，由此说一说自身的一个感受和给初学者一些学习的建议。</p>
+<blockquote>
+<p>朴灵和阮一峰都是大神级人物，不清楚的读者可自行谷歌。</p>
+</blockquote>
+<h3 id="感受"><a href="#感受" class="headerlink" title="感受"></a>感受</h3><p>上文中提到朴灵评注阮一峰老师的文章,然而文中提到的 <code>javascript 运行机制</code>、<code>Event Loop</code>、<code>堆</code>、<code>栈</code> 这些比较底层的知识点。对于这些知识点，不是真正的专家估计是难以说得清楚，不同的程序员和级别不同的程序员，有着不一样的理解。</p>
+<p>比如对于程序代码在内存中是如何存放(<code>堆、栈</code>)来说，你想深入去学习，那么你可能就需要去了解操作系统相关的一些知识点。还有像一些程序设计模式的理解和应用，像这些知识点，很难给出一个很确切标准的答案。那么我们该如何对待这些问题？我认为应该持这样的一种态度：</p>
+<ul>
+<li>不要过分崇拜大牛，要带着批判的眼光阅读技术文章，对文章好坏辨识度会随着自身水平的提高而提高。</li>
+<li>一句老话“实践出真知”，学程序没有捷径，天赋不足，就得多敲</li>
+</ul>
+<p>程序学习的过程本身就得不断学习，然而有一天你会发现，你以前学的或理解的是错误的或不完全正确的，由此循环下去…</p>
+<h3 id="简单列出几点程序学习的一些建议"><a href="#简单列出几点程序学习的一些建议" class="headerlink" title="简单列出几点程序学习的一些建议"></a>简单列出几点程序学习的一些建议</h3><ol>
+<li>不断的打基础，基础不牢很快就到瓶颈，遇到深入问题，还解决不了</li>
+<li>有时间多读几本好书，书上的知识一般比较权威。(ps:本人一般只读国外的)</li>
+<li>多敲代码，多思考，先把业务代码给写好了，再谈架构和设计模式这些</li>
+<li>多狂社区，把自己的学习笔记记录下来，比如写博客</li>
+<li>有精力的话，多学几门不同的语言</li>
+<li>坚持学习！坚持学习！坚持学习！</li>
+</ol>
+<h3 id="相关阅读"><a href="#相关阅读" class="headerlink" title="相关阅读"></a>相关阅读</h3><p><a href="http://www.ruanyifeng.com/blog/2014/10/event-loop.html" target="_blank" rel="noopener">JavaScript 运行机制详解：再谈Event Loop</a><br><a href="http://blog.csdn.net/lin_credible/article/details/40143961" target="_blank" rel="noopener">【朴灵评注】JavaScript 运行机制详解：再谈Event Loop</a><br><a href="https://www.zhihu.com/question/26038323" target="_blank" rel="noopener">怎么看待朴灵评注阮一峰老师的最新文章这件事？</a><br><a href="http://www.cnblogs.com/xiaozhi_5638/p/4816265.html" target="_blank" rel="noopener">nodejs 事件轮询详述</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/EventLoop" target="_blank" rel="noopener">JavaScript 并发模型与Event Loop</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Memory_Management" target="_blank" rel="noopener">JavaScript 内存管理</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/localStorage 相关阅读/" rel="next" title="localStorage 相关阅读">
+                <i class="fa fa-chevron-left"></i> localStorage 相关阅读
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/聊聊 S.O.L.I.D 五大原则/" rel="prev" title="聊聊 S.O.L.I.D 五大原则">
+                聊聊 S.O.L.I.D 五大原则 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars3.githubusercontent.com/u/10380760?v=3&s=466"
+               alt="avilang" />
+          <p class="site-author-name" itemprop="name">avilang</p>
+          <p class="site-description motion-element" itemprop="description">爱折腾，爱分享，爱学习</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/avilang" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于本文"><span class="nav-number">1.</span> <span class="nav-text">关于本文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#感受"><span class="nav-number">2.</span> <span class="nav-text">感受</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单列出几点程序学习的一些建议"><span class="nav-number">3.</span> <span class="nav-text">简单列出几点程序学习的一些建议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关阅读"><span class="nav-number">4.</span> <span class="nav-text">相关阅读</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">avilang</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

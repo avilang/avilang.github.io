@@ -1,0 +1,558 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="介绍观察者模式又叫发布订阅模式(Publish/Subscribe)，一个目标对象管理所有相依于它的观察者对象。该模式中存在两个角色：观察者和被观察者。目标对象与观察者之间的抽象耦合关系能够单独扩展以及重用。 该模式通常有两种实现策略：”推”(push) 和 “拉”(pull)  例：对于报社可能雇佣投送人员四处送报给订阅者，这就是主动推送。而对于规模小的报社没有足够的资源去雇佣投送员，这时候可以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javaScript 设计模式系列之一：观察者模式">
+<meta property="og:url" content="http://avilang.me/2017/javaScript 设计模式系列之一：观察者模式/index.html">
+<meta property="og:site_name" content="Hello avilang">
+<meta property="og:description" content="介绍观察者模式又叫发布订阅模式(Publish/Subscribe)，一个目标对象管理所有相依于它的观察者对象。该模式中存在两个角色：观察者和被观察者。目标对象与观察者之间的抽象耦合关系能够单独扩展以及重用。 该模式通常有两种实现策略：”推”(push) 和 “拉”(pull)  例：对于报社可能雇佣投送人员四处送报给订阅者，这就是主动推送。而对于规模小的报社没有足够的资源去雇佣投送员，这时候可以">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-26T06:42:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javaScript 设计模式系列之一：观察者模式">
+<meta name="twitter:description" content="介绍观察者模式又叫发布订阅模式(Publish/Subscribe)，一个目标对象管理所有相依于它的观察者对象。该模式中存在两个角色：观察者和被观察者。目标对象与观察者之间的抽象耦合关系能够单独扩展以及重用。 该模式通常有两种实现策略：”推”(push) 和 “拉”(pull)  例：对于报社可能雇佣投送人员四处送报给订阅者，这就是主动推送。而对于规模小的报社没有足够的资源去雇佣投送员，这时候可以">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://avilang.me/2017/javaScript 设计模式系列之一：观察者模式/"/>
+
+  <title> javaScript 设计模式系列之一：观察者模式 | Hello avilang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hello avilang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                javaScript 设计模式系列之一：观察者模式
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-20T00:00:00+08:00" content="2017-05-20">
+              2017-05-20
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p><a href="https://zh.wikipedia.org/wiki/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F" target="_blank" rel="noopener">观察者模式</a>又叫发布订阅模式(Publish/Subscribe)，一个目标对象管理所有相依于它的观察者对象。该模式中存在两个角色：观察者和被观察者。目标对象与观察者之间的抽象耦合关系能够单独扩展以及重用。</p>
+<p>该模式通常有两种实现策略：”推”(push) 和 “拉”(pull)</p>
+<blockquote>
+<p>例：对于报社可能雇佣投送人员四处送报给订阅者，这就是主动推送。而对于规模小的报社没有足够的资源去雇佣投送员，这时候可以采取 “拉” 的方式。就是在订阅者附近提供自己的数据，供订阅者 “拉” 自己所需的数据。</p>
+</blockquote>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><h4 id="push"><a href="#push" class="headerlink" title="push"></a>push</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Observable = &#123;</span><br><span class="line">    observers: []</span><br><span class="line">  , <span class="attr">lastId</span>: <span class="number">-1</span></span><br><span class="line">  , <span class="attr">addObserver</span>: <span class="function"><span class="keyword">function</span>(<span class="params">observer</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.observers.push(&#123;</span><br><span class="line">        callback: observer</span><br><span class="line">      , <span class="attr">id</span>: ++<span class="keyword">this</span>.lastId</span><br><span class="line">      &#125;)</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.lastId</span><br><span class="line">    &#125;</span><br><span class="line">  , <span class="attr">removeObserver</span>: <span class="function"><span class="keyword">function</span>(<span class="params">id</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="keyword">this</span>.observers.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        <span class="keyword">this</span>.observers[i]</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.observers[i].id == id) &#123;</span><br><span class="line">          <span class="keyword">this</span>.observers.splice(i, <span class="number">1</span>)</span><br><span class="line">          <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">  , <span class="attr">notifyObservers</span>: <span class="function"><span class="keyword">function</span>(<span class="params">message</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="keyword">this</span>.observers.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        <span class="keyword">this</span>.observers[i].callback(message)</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> id_1 = Observable.addObserver(<span class="function"><span class="keyword">function</span>(<span class="params">message</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"First observer message:"</span> + message)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> observer = <span class="function"><span class="keyword">function</span>(<span class="params">message</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Second observer message:"</span> + message)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> id_2 = Observable.addObserver(observer)</span><br><span class="line"></span><br><span class="line">Observable.notifyObservers(<span class="string">'test 1'</span>)</span><br><span class="line">Observable.removeObserver(id_2)</span><br><span class="line">Observable.notifyObservers(<span class="string">'test 2'</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="pull"><a href="#pull" class="headerlink" title="pull"></a>pull</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Observable = &#123;&#125;</span><br><span class="line"></span><br><span class="line">;(<span class="function"><span class="keyword">function</span>(<span class="params">O</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> observers = []</span><br><span class="line">    , privateVar</span><br><span class="line"></span><br><span class="line">  O.addObserver = <span class="function"><span class="keyword">function</span>(<span class="params">observer</span>) </span>&#123;</span><br><span class="line">    observers.push(observer)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  O.removeObserver = <span class="function"><span class="keyword">function</span>(<span class="params">observer</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> index = observers.indexOf(observer)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (~index) &#123;</span><br><span class="line">      observers.splice(index, <span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  O.notifyObservers = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = observers.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">      observers[i].update()</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  O.updatePrivate = <span class="function"><span class="keyword">function</span>(<span class="params">newValue</span>) </span>&#123;</span><br><span class="line">    privateVar = newValue</span><br><span class="line">    <span class="keyword">this</span>.notifyObservers()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  O.getPrivate = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> privateVar</span><br><span class="line">  &#125;</span><br><span class="line">&#125;(Observable))</span><br><span class="line"></span><br><span class="line">Observable.addObserver(&#123;</span><br><span class="line">  update: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.process()</span><br><span class="line">  &#125;</span><br><span class="line">, <span class="attr">process</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> value = Observable.getPrivate()</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Private value is: "</span> + value)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">Observable.updatePrivate(<span class="string">'test 1'</span>)</span><br><span class="line"><span class="comment">// Private value is: test 1</span></span><br><span class="line"></span><br><span class="line">Observable.updatePrivate(<span class="string">'test 2'</span>)</span><br><span class="line"><span class="comment">// Private value is: test 2</span></span><br></pre></td></tr></table></figure>
+<p>被观察对象将通知所有的观察者，并且每个观察者将从被观察对象中提取所需的信息。</p>
+<h4 id="让多个对象都具有观察者发布订阅的功能"><a href="#让多个对象都具有观察者发布订阅的功能" class="headerlink" title="让多个对象都具有观察者发布订阅的功能"></a>让多个对象都具有观察者发布订阅的功能</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> observer = &#123;</span><br><span class="line">    addSubscriber:<span class="function"><span class="keyword">function</span> (<span class="params">callback</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.subscribers[<span class="keyword">this</span>.subscribers.length] = callback;</span><br><span class="line">    &#125;,</span><br><span class="line">    removeSubscriber:<span class="function"><span class="keyword">function</span> (<span class="params">callback</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.subscribers.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.subscribers[i] === callback) &#123;</span><br><span class="line">                <span class="keyword">delete</span>(<span class="keyword">this</span>.subscribers[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    publish:<span class="function"><span class="keyword">function</span> (<span class="params">what</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.subscribers.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>.subscribers[i] === <span class="string">'function'</span>) &#123;</span><br><span class="line">                <span class="keyword">this</span>.subscribers[i](what);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    make:<span class="function"><span class="keyword">function</span> (<span class="params">o</span>) </span>&#123; <span class="comment">// turns an object into a publisher</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> <span class="keyword">this</span>) &#123;</span><br><span class="line">            o[i] = <span class="keyword">this</span>[i];</span><br><span class="line">            o.subscribers = [];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> blogger = &#123;</span><br><span class="line">    writeBlogPost:<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> content = <span class="string">'Today is '</span> + <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">        <span class="keyword">this</span>.publish(content);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> la_times = &#123;</span><br><span class="line">    newIssue:<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> paper = <span class="string">'Martians have landed on Earth!'</span>;</span><br><span class="line">        <span class="keyword">this</span>.publish(paper);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">observer.make(blogger);</span><br><span class="line">observer.make(la_times);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> jack = &#123;</span><br><span class="line">    read:<span class="function"><span class="keyword">function</span> (<span class="params">what</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'I just read that '</span> + what)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> jill = &#123;</span><br><span class="line">    gossip:<span class="function"><span class="keyword">function</span> (<span class="params">what</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'You didn\'t hear it from me, but '</span> + what)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">blogger.addSubscriber(jack.read);</span><br><span class="line">blogger.addSubscriber(jill.gossip);</span><br><span class="line">blogger.writeBlogPost();</span><br><span class="line">blogger.removeSubscriber(jill.gossip);</span><br><span class="line">blogger.writeBlogPost();</span><br><span class="line">la_times.addSubscriber(jill.gossip);</span><br><span class="line">la_times.newIssue();</span><br></pre></td></tr></table></figure>
+<h4 id="避免创建多个被观察者对象，可以增加-“命名空间”"><a href="#避免创建多个被观察者对象，可以增加-“命名空间”" class="headerlink" title="避免创建多个被观察者对象，可以增加 “命名空间”"></a>避免创建多个被观察者对象，可以增加 “命名空间”</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Observable = &#123;</span><br><span class="line">    observers: []</span><br><span class="line">  , <span class="attr">addObserver</span>: <span class="function"><span class="keyword">function</span>(<span class="params">topic, observer</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.observers[topic] || (<span class="keyword">this</span>.observers[topic] = [])</span><br><span class="line"></span><br><span class="line">      <span class="keyword">this</span>.observers[topic].push(observer)</span><br><span class="line">    &#125;</span><br><span class="line">  , <span class="attr">removeObserver</span>: <span class="function"><span class="keyword">function</span>(<span class="params">topic, observer</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (!<span class="keyword">this</span>.observers[topic])</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">var</span> index = <span class="keyword">this</span>.observers[topic].indexOf(observer)</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (~index) &#123;</span><br><span class="line">        <span class="keyword">this</span>.observers[topic].splice(index, <span class="number">1</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  , <span class="attr">notifyObservers</span>: <span class="function"><span class="keyword">function</span>(<span class="params">topic, message</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (!<span class="keyword">this</span>.observers[topic])</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="keyword">this</span>.observers[topic].length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        <span class="keyword">this</span>.observers[topic][i](message)</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Observable.addObserver(<span class="string">'cart'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">message</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"First observer message:"</span> + message)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">Observable.addObserver(<span class="string">'notificatons'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">message</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Second observer message:"</span> + message)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">Observable.notifyObservers(<span class="string">'cart'</span>, <span class="string">'test 1'</span>)</span><br><span class="line"><span class="comment">// First observer message:test 1</span></span><br><span class="line"></span><br><span class="line">Observable.notifyObservers(<span class="string">'notificatons'</span>, <span class="string">'test 2'</span>)</span><br><span class="line"><span class="comment">// Second observer message:test 2</span></span><br></pre></td></tr></table></figure>
+<h3 id="相关阅读"><a href="#相关阅读" class="headerlink" title="相关阅读"></a>相关阅读</h3><p><a href="https://bumbu.github.io/javascript-observer-publish-subscribe-pattern/" target="_blank" rel="noopener">javascript-observer-publish-subscribe-pattern</a><br><a href="http://www.cnblogs.com/TomXu/archive/2012/03/02/2355128.html" target="_blank" rel="noopener">深入理解JavaScript系列（32）：设计模式之观察者模式</a><br><a href="https://github.com/shichuan/javascript-patterns/blob/master/design-patterns/observer.html" target="_blank" rel="noopener">javascript-patterns-observer</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/聊聊 S.O.L.I.D 五大原则/" rel="next" title="聊聊 S.O.L.I.D 五大原则">
+                <i class="fa fa-chevron-left"></i> 聊聊 S.O.L.I.D 五大原则
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/javaScript 设计模式系列之二：适配器模式/" rel="prev" title="javaScript 设计模式系列之二：适配器模式">
+                javaScript 设计模式系列之二：适配器模式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars3.githubusercontent.com/u/10380760?v=3&s=466"
+               alt="avilang" />
+          <p class="site-author-name" itemprop="name">avilang</p>
+          <p class="site-description motion-element" itemprop="description">爱折腾，爱分享，爱学习</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/avilang" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#push"><span class="nav-number">2.1.</span> <span class="nav-text">push</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pull"><span class="nav-number">2.2.</span> <span class="nav-text">pull</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#让多个对象都具有观察者发布订阅的功能"><span class="nav-number">2.3.</span> <span class="nav-text">让多个对象都具有观察者发布订阅的功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#避免创建多个被观察者对象，可以增加-“命名空间”"><span class="nav-number">2.4.</span> <span class="nav-text">避免创建多个被观察者对象，可以增加 “命名空间”</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关阅读"><span class="nav-number">3.</span> <span class="nav-text">相关阅读</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">avilang</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

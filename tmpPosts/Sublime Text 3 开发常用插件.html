@@ -1,0 +1,440 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言今天聊聊 Sublime Text 3 这款编辑器，在此之前用过好几款编辑器如：Dreamweaver notepad++ 等。只能说 Sublime Text 3 太强悍了，很多插件可用，对于提高编码的速度和质量有很大的帮助。适合新老手的朋友用。据说 vim 也是神器。 开发常用插件Package ControlPackage Control 插件本身是一个为了方便管理插件的插件。至于安装方">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hello avilang">
+<meta property="og:url" content="http://avilang.me/tmpPosts/Sublime Text 3 开发常用插件.html">
+<meta property="og:site_name" content="Hello avilang">
+<meta property="og:description" content="前言今天聊聊 Sublime Text 3 这款编辑器，在此之前用过好几款编辑器如：Dreamweaver notepad++ 等。只能说 Sublime Text 3 太强悍了，很多插件可用，对于提高编码的速度和质量有很大的帮助。适合新老手的朋友用。据说 vim 也是神器。 开发常用插件Package ControlPackage Control 插件本身是一个为了方便管理插件的插件。至于安装方">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-26T06:42:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hello avilang">
+<meta name="twitter:description" content="前言今天聊聊 Sublime Text 3 这款编辑器，在此之前用过好几款编辑器如：Dreamweaver notepad++ 等。只能说 Sublime Text 3 太强悍了，很多插件可用，对于提高编码的速度和质量有很大的帮助。适合新老手的朋友用。据说 vim 也是神器。 开发常用插件Package ControlPackage Control 插件本身是一个为了方便管理插件的插件。至于安装方">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://avilang.me/tmpPosts/Sublime Text 3 开发常用插件.html"/>
+
+  <title>
+  
+
+  
+     | Hello avilang
+  
+</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hello avilang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+      <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>今天聊聊 Sublime Text 3 这款编辑器，在此之前用过好几款编辑器如：Dreamweaver notepad++ 等。只能说 Sublime Text 3 太强悍了，很多插件可用，对于提高编码的速度和质量有很大的帮助。适合新老手的朋友用。据说 vim 也是神器。</p>
+<h3 id="开发常用插件"><a href="#开发常用插件" class="headerlink" title="开发常用插件"></a>开发常用插件</h3><h5 id="Package-Control"><a href="#Package-Control" class="headerlink" title="Package Control"></a>Package Control</h5><p>Package Control 插件本身是一个为了方便管理插件的插件。至于安装方法，大家可以自行百度，这里就不多说了。</p>
+<h5 id="IMESupport"><a href="#IMESupport" class="headerlink" title="IMESupport"></a>IMESupport</h5><p>Sublime Text 3 下不支持中文的鼠标跟随，可以通过这个插件解决这问题。</p>
+<h5 id="SideBarEnhancements"><a href="#SideBarEnhancements" class="headerlink" title="SideBarEnhancements"></a>SideBarEnhancements</h5><p>侧栏右键功能增强插件</p>
+<h5 id="AutoFileName"><a href="#AutoFileName" class="headerlink" title="AutoFileName"></a>AutoFileName</h5><p>这插件能自动完成文件名的输入，如图片选取等。 Sublime Text 3 默认没有这功能，使用该插件能大大方便编码。</p>
+<h5 id="DocBlockr"><a href="#DocBlockr" class="headerlink" title="DocBlockr"></a>DocBlockr</h5><p>能生成标准的注释，包括函数名、参数、返回值等，并以多行显示，手动写比较麻烦。</p>
+<h5 id="Emmet"><a href="#Emmet" class="headerlink" title="Emmet"></a>Emmet</h5><p>Emmet 作为 zen coding 的升级版，对于前端来说，可是必备插件。 可参考 <a href="http://docs.emmet.io/" target="_blank" rel="noopener">官网</a> 和 <a href="http://docs.emmet.io/cheat-sheet/" target="_blank" rel="noopener">官方语法速查表</a> 还有 <a href="http://yanxyz.github.io/emmet-docs/" target="_blank" rel="noopener">中文文档</a></p>
+<h5 id="JavaScript-Completions"><a href="#JavaScript-Completions" class="headerlink" title="JavaScript Completions"></a>JavaScript Completions</h5><p>一款 JS 语法提示插件</p>
+<h5 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h5><p>jQuery 语法提示插件</p>
+<h5 id="JsFormat"><a href="#JsFormat" class="headerlink" title="JsFormat"></a>JsFormat</h5><p>JS 格式化插件，也可以把 JSON 数据格式化</p>
+<h5 id="Markdown-Preview"><a href="#Markdown-Preview" class="headerlink" title="Markdown Preview"></a>Markdown Preview</h5><p>可以把 markdown 文件转换成 html 格式</p>
+<h5 id="MarkdownEditing"><a href="#MarkdownEditing" class="headerlink" title="MarkdownEditing"></a>MarkdownEditing</h5><p>Markdown 辅助编辑插件</p>
+<h5 id="Sass"><a href="#Sass" class="headerlink" title="Sass"></a>Sass</h5><p>sass 语法高亮插件</p>
+<h5 id="CSScomb"><a href="#CSScomb" class="headerlink" title="CSScomb"></a>CSScomb</h5><p>css 格式化 和 属性排序插件，排序的功能很赞，不紧可以排序 <em>.css 的文件，还能排序 </em>.scss 的文件。帮助你写出高效整洁的 css 代码。需要 Node.js 的支持。</p>
+<h5 id="Local-History"><a href="#Local-History" class="headerlink" title="Local History"></a>Local History</h5><p>非常推荐，智能缓存编辑过的文件，有点像本地版本管理工具。其中增加 <code>history_path</code> 配置项来设定缓存路径</p>
+<h5 id="EditorConfig"><a href="#EditorConfig" class="headerlink" title="EditorConfig"></a>EditorConfig</h5><p>EditorConfig 可以帮助开发者在不同的编辑器和IDE之间定义和维护一致的代码风格，具体可跳阅 <a href="http://editorconfig.org/" target="_blank" rel="noopener">http://editorconfig.org/</a></p>
+<h3 id="关于我的-Sublime-Text-配置"><a href="#关于我的-Sublime-Text-配置" class="headerlink" title="关于我的 Sublime Text 配置"></a>关于我的 Sublime Text 配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;auto_complete_commit_on_tab&quot;: true,</span><br><span class="line">    &quot;bold_folder_labels&quot;: true,</span><br><span class="line">    &quot;caret_extra_bottom&quot;: 0,</span><br><span class="line">    &quot;caret_extra_top&quot;: 0,</span><br><span class="line">    &quot;caret_extra_width&quot;: 2,</span><br><span class="line">    &quot;caret_style&quot;: &quot;smooth&quot;,</span><br><span class="line">    &quot;color_scheme&quot;: &quot;Packages/Color Scheme - Default/IDLE.tmTheme&quot;,</span><br><span class="line">    &quot;default_encoding&quot;: &quot;UTF-8&quot;,</span><br><span class="line">    &quot;detect_indentation&quot;: false,</span><br><span class="line">    &quot;draw_minimap_border&quot;: true,</span><br><span class="line">    &quot;font_face&quot;: &quot;Courier New&quot;,</span><br><span class="line">    &quot;font_size&quot;: 15,</span><br><span class="line">    &quot;highlight_line&quot;: true,</span><br><span class="line">    &quot;ignored_packages&quot;:</span><br><span class="line">    [</span><br><span class="line">        &quot;Vintage&quot;</span><br><span class="line">    ],</span><br><span class="line">    &quot;line_padding_bottom&quot;: 3,</span><br><span class="line">    &quot;line_padding_top&quot;: 3,</span><br><span class="line">    &quot;rulers&quot;:</span><br><span class="line">    [</span><br><span class="line">        100</span><br><span class="line">    ],</span><br><span class="line">    &quot;save_on_focus_lost&quot;: true,</span><br><span class="line">    &quot;scroll_past_end&quot;: true,</span><br><span class="line">    &quot;show_encoding&quot;: true,</span><br><span class="line">    &quot;tab_size&quot;: 4,</span><br><span class="line">    &quot;translate_tabs_to_spaces&quot;: true,</span><br><span class="line">    &quot;trim_trailing_white_space_on_save&quot;: true,</span><br><span class="line">    &quot;update_check&quot;: false,</span><br><span class="line">    &quot;word_wrap&quot;: false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="相关资源"><a href="#相关资源" class="headerlink" title="相关资源"></a>相关资源</h3><p><a href="https://packagecontrol.io/" target="_blank" rel="noopener">https://packagecontrol.io/</a><br><a href="https://github.com/jikeytang/sublime-text" target="_blank" rel="noopener">https://github.com/jikeytang/sublime-text</a></p>
+
+    
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars3.githubusercontent.com/u/10380760?v=3&s=466"
+               alt="avilang" />
+          <p class="site-author-name" itemprop="name">avilang</p>
+          <p class="site-description motion-element" itemprop="description">爱折腾，爱分享，爱学习</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/avilang" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">avilang</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,598 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="什么是 SASSSASS 是一种 CSS 开发工具，提供了许多便利的写法，使得 CSS 编写变得简单和可维护。本文总结了 SASS 的常用用法，高手可略过，也可参考官方文档 安装使用 SASS 需要安装 Ruby ，Windows 用户可在这 下载 Ruby 的安装包。假定你已经安装好了 Ruby ，接着在命令行输入下面的命令进行安装。 1$ gem install sass 可以通过 sass">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SASS 用法指南">
+<meta property="og:url" content="http://avilang.me/2016/SASS 用法指南/index.html">
+<meta property="og:site_name" content="Hello avilang">
+<meta property="og:description" content="什么是 SASSSASS 是一种 CSS 开发工具，提供了许多便利的写法，使得 CSS 编写变得简单和可维护。本文总结了 SASS 的常用用法，高手可略过，也可参考官方文档 安装使用 SASS 需要安装 Ruby ，Windows 用户可在这 下载 Ruby 的安装包。假定你已经安装好了 Ruby ，接着在命令行输入下面的命令进行安装。 1$ gem install sass 可以通过 sass">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-26T06:42:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SASS 用法指南">
+<meta name="twitter:description" content="什么是 SASSSASS 是一种 CSS 开发工具，提供了许多便利的写法，使得 CSS 编写变得简单和可维护。本文总结了 SASS 的常用用法，高手可略过，也可参考官方文档 安装使用 SASS 需要安装 Ruby ，Windows 用户可在这 下载 Ruby 的安装包。假定你已经安装好了 Ruby ，接着在命令行输入下面的命令进行安装。 1$ gem install sass 可以通过 sass">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://avilang.me/2016/SASS 用法指南/"/>
+
+  <title> SASS 用法指南 | Hello avilang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hello avilang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                SASS 用法指南
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-02T00:00:00+08:00" content="2016-11-02">
+              2016-11-02
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="什么是-SASS"><a href="#什么是-SASS" class="headerlink" title="什么是 SASS"></a>什么是 SASS</h3><p>SASS 是一种 CSS 开发工具，提供了许多便利的写法，使得 CSS 编写变得简单和可维护。本文总结了 SASS 的常用用法，高手可略过，也可参考<a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html" target="_blank" rel="noopener">官方文档</a></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>使用 SASS 需要安装 Ruby ，Windows 用户可在这 <a href="http://rubyinstaller.org/downloads/" target="_blank" rel="noopener">下载</a> Ruby 的安装包。假定你已经安装好了 Ruby ，接着在命令行输入下面的命令进行安装。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gem install sass</span><br></pre></td></tr></table></figure>
+<p>可以通过 <code>sass -v</code> 来检测 SASS 是否安装成功。</p>
+<p>由于国内网络原因，导致 rubygems.org 存放在 Amazon S3 上面的资源文件间歇性连接失败。这时我们可以利用淘宝提供的 <a href="https://ruby.taobao.org/" target="_blank" rel="noopener">RubyGems 镜像</a> ，在命令行输入下面命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/</span><br><span class="line">$ gem sources -l</span><br><span class="line">*** CURRENT SOURCES ***</span><br><span class="line"></span><br><span class="line">https://ruby.taobao.org</span><br></pre></td></tr></table></figure>
+<p>若切换淘宝提供的镜像是提示 <code>SSL</code> <code>certificate verify failed</code> 相关的信息，那需要进一步的设置。下面是简单描述:</p>
+<ol>
+<li>到 <code>https://curl.haxx.se/ca/cacert.pem</code> 下载证书，一般放到 Ruby 安装的根目录即可。</li>
+<li>设置环境变量，变量名为 <code>SSL_CERT_FILE</code> 值为证书地址。如：<code>D:\Program Files\Ruby23-x64\cacert.pem</code></li>
+<li>重启客户端，再重新设置</li>
+<li>可参考 <a href="https://gist.github.com/fnichol/867550" target="_blank" rel="noopener">https://gist.github.com/fnichol/867550</a> 和 <a href="http://www.csdn123.com/html/topnews201408/35/3635.htm" target="_blank" rel="noopener">http://www.csdn123.com/html/topnews201408/35/3635.htm</a></li>
+</ol>
+<p>另外提醒一下 <code>npm</code> 也存在同样的情况，也可换成 <a href="http://npm.taobao.org/" target="_blank" rel="noopener">淘宝 NPM 镜像</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm config set registry https://registry.npm.taobao.org</span><br><span class="line">$ npm config get registry</span><br></pre></td></tr></table></figure>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>SASS 文件是普通的文本文件，文件后缀名是 <code>.scss</code> ，我们需要将其编译成 <code>*.css</code> 的文件来使用，命令如下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sass test.scss test.css</span><br><span class="line">$ sass --style compressed test.sass test.css</span><br></pre></td></tr></table></figure>
+<p>SASS 提供四个<a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style" target="_blank" rel="noopener">编译风格</a>的选项</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. nested：嵌套缩进的css代码，它是默认值。</span><br><span class="line"></span><br><span class="line">2. expanded：没有缩进的、扩展的css代码。</span><br><span class="line"></span><br><span class="line">3. compact：简洁格式的css代码。</span><br><span class="line"></span><br><span class="line">4. compressed：压缩后的css代码。</span><br></pre></td></tr></table></figure>
+<p>你也可以让 SASS 监听某个文件或目录，一旦源文件有变动，就自动生成编译后的版本。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sass --watch input.scss:output.css  // watch a file</span><br><span class="line"></span><br><span class="line">$ sass --watch app/sass:public/stylesheets  // watch a directory</span><br></pre></td></tr></table></figure>
+<p>按 <code>Ctrl + C</code> 可停止监听，另外还有一个<a href="http://www.sassmeister.com/" target="_blank" rel="noopener">在线转换器</a>，你可以在那里，试运行下面的例子。</p>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><h4 id="1-注释"><a href="#1-注释" class="headerlink" title="1.注释"></a>1.注释</h4><p>SASS 共有两种注释风格</p>
+<ul>
+<li>标准的 CSS 注释 <code>/* comment */</code> ，会保留到编译后的文件。</li>
+<li>单行注释 <code>// comment</code> ，只保留在 SASS 源文件中，编译后被省略。</li>
+</ul>
+<p>在 <code>/*</code> 后面加一个感叹号，表示这是”重要注释”。即使是压缩模式编译，也会保留这行注释，通常可以用于声明版权信息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/*!</span><br><span class="line">  重要注释！</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+<h4 id="2-变量"><a href="#2-变量" class="headerlink" title="2.变量"></a>2.变量</h4><p>SASS 允许使用变量，所有变量以 <code>$</code> 开头。如果变量需要镶嵌在字符串之中，就必须需要写在 <code>#{}</code> 之中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$blue : #1875e7;</span><br><span class="line">$side : left;</span><br><span class="line"></span><br><span class="line">div &#123;</span><br><span class="line">  color : $blue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.rounded &#123;</span><br><span class="line">  border-#&#123;$side&#125;-radius: 5px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-计算功能"><a href="#3-计算功能" class="headerlink" title="3.计算功能"></a>3.计算功能</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">body &#123;</span><br><span class="line">　margin: (14px/2);</span><br><span class="line">　top: 50px + 100px;</span><br><span class="line">　right: 2 * 10%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-嵌套"><a href="#4-嵌套" class="headerlink" title="4.嵌套"></a>4.嵌套</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    h1 &#123;</span><br><span class="line">        color:red;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>属性也可以嵌套</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">p &#123;</span><br><span class="line">    border:&#123;</span><br><span class="line">        width:1px;</span><br><span class="line">        color:#f90;</span><br><span class="line">        style:solid;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在嵌套的代码块内，可以使用 <code>&amp;</code> 引用父元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a &#123;</span><br><span class="line">  color:#000;</span><br><span class="line">  &amp;:hover &#123;</span><br><span class="line">    color: green;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="5-继承"><a href="#5-继承" class="headerlink" title="5.继承"></a>5.继承</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.class1&#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height:100px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.class2&#123;</span><br><span class="line">    @extend .class1;</span><br><span class="line">    background-color: #fa0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面示例编译后</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.class1, .class2 &#123;</span><br><span class="line">  width: 100px;</span><br><span class="line">  height: 100px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.class2 &#123;</span><br><span class="line">  background-color: #fa0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="6-Mixin"><a href="#6-Mixin" class="headerlink" title="6.Mixin"></a>6.Mixin</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@mixin rounded($vert, $horz, $radius:10px) &#123;</span><br><span class="line">　　　　border-#&#123;$vert&#125;-#&#123;$horz&#125;-radius: $radius;</span><br><span class="line">　　　　-moz-border-radius-#&#123;$vert&#125;#&#123;$horz&#125;: $radius;</span><br><span class="line">　　　　-webkit-border-#&#123;$vert&#125;-#&#123;$horz&#125;-radius: $radius;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">div &#123;</span><br><span class="line">  @include rounded(top, left, 5px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="7-插入文件"><a href="#7-插入文件" class="headerlink" title="7.插入文件"></a>7.插入文件</h4><p><code>@import</code> 命令，用来插入外部文件。如果插入的是 <code>.css</code> 文件，则等同于 css 的 import 命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@import &apos;*.scss&apos;;</span><br></pre></td></tr></table></figure>
+<h4 id="8-自定义函数"><a href="#8-自定义函数" class="headerlink" title="8.自定义函数"></a>8.自定义函数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@function double($n)&#123;</span><br><span class="line">  @return $n * 2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.testDouble&#123;</span><br><span class="line">  width:double(100px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>更多特性可自行查看 <a href="http://sass-lang.com/" target="_blank" rel="noopener">SASS 官网</a>，和 SASS 类似的有 LESS ，可百度了解。另外还有一个强悍的 SASS 工具库 Compass</p>
+<h3 id="相关阅读"><a href="#相关阅读" class="headerlink" title="相关阅读"></a>相关阅读</h3><ul>
+<li><a href="http://www.ruanyifeng.com/blog/2012/06/sass.html" target="_blank" rel="noopener">阮一峰 - SASS用法指南</a></li>
+<li><a href="http://www.w3cplus.com/sassguide/" target="_blank" rel="noopener">sass 入门</a></li>
+<li><a href="http://www.sasschina.com/" target="_blank" rel="noopener">sass 中文网</a></li>
+<li><a href="http://sass.bootcss.com/" target="_blank" rel="noopener">sass 中文文档</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/RequireJS 笔记/" rel="next" title="RequireJS 笔记">
+                <i class="fa fa-chevron-left"></i> RequireJS 笔记
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/Sass 之 Compass 用法指南/" rel="prev" title="Sass 之 Compass 用法指南">
+                Sass 之 Compass 用法指南 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars3.githubusercontent.com/u/10380760?v=3&s=466"
+               alt="avilang" />
+          <p class="site-author-name" itemprop="name">avilang</p>
+          <p class="site-description motion-element" itemprop="description">爱折腾，爱分享，爱学习</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/avilang" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是-SASS"><span class="nav-number">1.</span> <span class="nav-text">什么是 SASS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">3.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本用法"><span class="nav-number">4.</span> <span class="nav-text">基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-注释"><span class="nav-number">4.1.</span> <span class="nav-text">1.注释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-变量"><span class="nav-number">4.2.</span> <span class="nav-text">2.变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-计算功能"><span class="nav-number">4.3.</span> <span class="nav-text">3.计算功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-嵌套"><span class="nav-number">4.4.</span> <span class="nav-text">4.嵌套</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-继承"><span class="nav-number">4.5.</span> <span class="nav-text">5.继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-Mixin"><span class="nav-number">4.6.</span> <span class="nav-text">6.Mixin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-插入文件"><span class="nav-number">4.7.</span> <span class="nav-text">7.插入文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-自定义函数"><span class="nav-number">4.8.</span> <span class="nav-text">8.自定义函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结语"><span class="nav-number">5.</span> <span class="nav-text">结语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关阅读"><span class="nav-number">6.</span> <span class="nav-text">相关阅读</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">avilang</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

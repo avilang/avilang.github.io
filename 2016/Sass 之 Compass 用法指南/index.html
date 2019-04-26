@@ -1,0 +1,579 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="什么是Compass简单的说 Compass 是 Sass 的工具库，有点像 Javascript 和 JQuery 的关系。学会了 Compass 能大大提升 CSS 的开放效率。若不清楚什么是 Sass ，可移步阅读 SASS 用法指南 安装Compass 是用 Ruby 语言开发的，所以安装它之前，必须安装 Ruby 。在命名行下输入 1$ gem install compass 项目初始化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sass 之 Compass 用法指南">
+<meta property="og:url" content="http://avilang.me/2016/Sass 之 Compass 用法指南/index.html">
+<meta property="og:site_name" content="Hello avilang">
+<meta property="og:description" content="什么是Compass简单的说 Compass 是 Sass 的工具库，有点像 Javascript 和 JQuery 的关系。学会了 Compass 能大大提升 CSS 的开放效率。若不清楚什么是 Sass ，可移步阅读 SASS 用法指南 安装Compass 是用 Ruby 语言开发的，所以安装它之前，必须安装 Ruby 。在命名行下输入 1$ gem install compass 项目初始化">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-26T06:42:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sass 之 Compass 用法指南">
+<meta name="twitter:description" content="什么是Compass简单的说 Compass 是 Sass 的工具库，有点像 Javascript 和 JQuery 的关系。学会了 Compass 能大大提升 CSS 的开放效率。若不清楚什么是 Sass ，可移步阅读 SASS 用法指南 安装Compass 是用 Ruby 语言开发的，所以安装它之前，必须安装 Ruby 。在命名行下输入 1$ gem install compass 项目初始化">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://avilang.me/2016/Sass 之 Compass 用法指南/"/>
+
+  <title> Sass 之 Compass 用法指南 | Hello avilang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hello avilang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Sass 之 Compass 用法指南
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-03T00:00:00+08:00" content="2016-11-03">
+              2016-11-03
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="什么是Compass"><a href="#什么是Compass" class="headerlink" title="什么是Compass"></a>什么是Compass</h3><p>简单的说 Compass 是 Sass 的工具库，有点像 Javascript 和 JQuery 的关系。学会了 Compass 能大大提升 CSS 的开放效率。若不清楚什么是 Sass ，可移步阅读 <a href="http://avilang.me/2016/SASS%20%E7%94%A8%E6%B3%95%E6%8C%87%E5%8D%97/">SASS 用法指南</a></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>Compass 是用 Ruby 语言开发的，所以安装它之前，必须安装 Ruby 。在命名行下输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gem install compass</span><br></pre></td></tr></table></figure>
+<h3 id="项目初始化"><a href="#项目初始化" class="headerlink" title="项目初始化"></a>项目初始化</h3><p>要创建一个你的 Compass 项目，假定它的名字叫做 testCompass，那么在命令行键入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ compass create testCompass</span><br></pre></td></tr></table></figure>
+<p>当前目录就会生成 testCompass 的子目录。进入到该目录，你会看到一个 <code>config.rb</code> 文件，这是你项目的配置文件。还有两个子目录 <code>sass</code> 和 <code>stylesheets</code> 前者存放 Sass 源文件，后者存放编译后的 css 文件。</p>
+<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><p>要在网站上使用，必须将 scss 后缀的文件编译成 css 文件。编译命令如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ compass compile</span><br></pre></td></tr></table></figure>
+<p>该命令在项目根目录下运行，会将 sass 子目录中的 scss 文件，编译成 css 文件，保存在 stylesheets 子目录中。</p>
+<p>默认状态下，编译出来的 css 文件带有大量的注释。但在生产环境需要压缩后的 css 文件，这时要使用 <code>--output-style</code> 参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ compass compile --output-style compressed</span><br></pre></td></tr></table></figure>
+<p>Compass 只编译发生变动的文件，如果你要重新编译未变动的文件，需要使用 <code>--force</code> 参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ compass compile --force</span><br></pre></td></tr></table></figure>
+<p>除了使用命令行参数，还可以在配置文件 <code>config.rb</code> 中指定编译模式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">output_style = :expanded</span><br></pre></td></tr></table></figure>
+<p><code>:expanded</code> 模式表示编译后保留原格式，其他值还包括 <code>:nested</code> <code>:compact</code> 和 <code>:compressed</code></p>
+<p>也可以通过指定 environment 的值（ <code>:production</code> 或 <code>:development</code> ），智能判断编译模式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">environment = :development</span><br><span class="line"></span><br><span class="line">output_style = (environment == :production) ? :compressed : :expanded</span><br></pre></td></tr></table></figure>
+<p>在命令行模式下，除了一次性编译命令，compass 还有自动编译命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ compass watch</span><br></pre></td></tr></table></figure>
+<p>运行该命令后，只要 scss 文件发生变化，就会被自动编译成 css 文件。按 <code>Ctrl + C</code> 退出监听。</p>
+<p>有官更多 compass 的用法，请到<a href="http://compass-style.org/" target="_blank" rel="noopener">官网</a>查阅</p>
+<p>注意：在 sass 目录下 若文件以 <code>_</code> 开头，如 _mixin.scss, _variables.scss, _icons.scss 则编译时不会生成 css 文件到 stylesheets 目录。这特性可结合 <code>@import</code> 使用。</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>Compass 采用模块结构，不同模块提供不同的功能。如 reset, css3, layout, typography, utilities 这些模块。具体怎么用，可参考<a href="http://compass-style.org/reference/compass/" target="_blank" rel="noopener">官方文档</a></p>
+<p>下面给出一个示例代码，简单展示下 Compass 的用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line">//引入 compass 也可指定引入某模块如  @import &quot;compass/reset&quot;;</span><br><span class="line">@import &quot;compass&quot;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// normalize 是第三方模块 使用前需要安装好，并在 config.rb 文件中 添加 require &quot;compass-normalize&quot;</span><br><span class="line">//@import &quot;normalize&quot;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//浏览器的支持情况</span><br><span class="line">//@debug browsers();</span><br><span class="line">//@debug browser-versions(ie);</span><br><span class="line">//$supported-browsers : chrome;</span><br><span class="line">//$browser-minimum-versions:(&quot;ie&quot;:&quot;8&quot;);</span><br><span class="line">//@debug omitted-usage(&apos;ie&apos;, &apos;6&apos;);  //0.0093 使用率</span><br><span class="line"></span><br><span class="line">@include establish-baseline();</span><br><span class="line"></span><br><span class="line">body&#123;</span><br><span class="line">  @include debug-vertical-alignment;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//自动添加浏览器的前缀</span><br><span class="line">.radius&#123;</span><br><span class="line">    @include border-radius(4px);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.transparent&#123;</span><br><span class="line">    @include opacity(0.5);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.inline-block&#123;</span><br><span class="line">    @include inline-block;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">a&#123;</span><br><span class="line">  @include link-colors(#000, #0cc, #0ca, #c0a, #fa0);</span><br><span class="line">  @include unstyled-link();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//强行换行</span><br><span class="line">.force-wrap&#123;</span><br><span class="line">  @include force-wrap();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.nowrap&#123;</span><br><span class="line">  @include nowrap;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//不换行 长度超出变成 ...</span><br><span class="line">.ellipsis&#123;</span><br><span class="line">  @include ellipsis;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//若只兼容 ie8 以上 则编译后的 css 不出现 display: inline; （双边距）</span><br><span class="line">.left&#123;</span><br><span class="line">  @include float(&apos;left&apos;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.article&#123;</span><br><span class="line">  h1,h2,h3,p&#123;</span><br><span class="line">    margin:0;</span><br><span class="line">  &#125;</span><br><span class="line">  h1&#123;</span><br><span class="line">    //font-size:3em;  //48 / 16 = 3</span><br><span class="line">    //line-height: 1.5em; // 72 / 48 = 1.5</span><br><span class="line">    @include adjust-font-size-to(48px);</span><br><span class="line">  &#125;</span><br><span class="line">  h2&#123;</span><br><span class="line">    //font-size:2.25em;  //36 / 16 = 2.25</span><br><span class="line">    //line-height: 1.333333em;  // 48 / 36 = 1.333333</span><br><span class="line">    @include adjust-font-size-to(36px);</span><br><span class="line">  &#125;</span><br><span class="line">  h3&#123;</span><br><span class="line">    //font-size:1.5em;  //24 / 16 = 1.5</span><br><span class="line">    //line-height: 2em;  // 48 / 24 = 2</span><br><span class="line">    @include adjust-font-size-to(24px);</span><br><span class="line">  &#125;</span><br><span class="line">  p&#123;</span><br><span class="line">    // font-size:1em;</span><br><span class="line">    // line-height: 1.5em;</span><br><span class="line">    @include adjust-font-size-to(16px);</span><br><span class="line">    @include leader();</span><br><span class="line">    @include trailer();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//base64</span><br><span class="line">.img1&#123;</span><br><span class="line">    background-image: inline-image(&quot;2.jpeg&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.img2&#123;</span><br><span class="line">    background-image: image-url(&quot;0.jpg&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.tableStyle&#123;</span><br><span class="line"></span><br><span class="line">   //外边框</span><br><span class="line">   @include outer-table-borders(2px, #f60);</span><br><span class="line"></span><br><span class="line">   //单元格边框</span><br><span class="line">   @include inner-table-borders(1px, #000);</span><br><span class="line"></span><br><span class="line">   //格式化</span><br><span class="line">   @include table-scaffolding;</span><br><span class="line"></span><br><span class="line">   @include alternating-rows-and-columns(#fff, #f90, #222);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//清楚浮动</span><br><span class="line">.clearfix&#123;</span><br><span class="line">  @include legacy-pie-clearfix();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.minH&#123;</span><br><span class="line">  @include min-height(30px);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//精灵图</span><br><span class="line">@import &apos;icons&apos;;</span><br></pre></td></tr></table></figure>
+<p>其中 <code>_icons.scss</code> 的代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">//为 true 则样式中加上图片宽高</span><br><span class="line">$icons-sprite-dimensions : true;</span><br><span class="line"></span><br><span class="line">//合成布局 水平(horizontal) 垂直 对角线(diagon) 最节省空格 smart</span><br><span class="line">$icons-layout : horizontal;</span><br><span class="line"></span><br><span class="line">//间隔</span><br><span class="line">$icons-spacing : 30px;</span><br><span class="line"></span><br><span class="line">//更多参数参考 http://compass-style.org/help/tutorials/spriting/customization-options/</span><br><span class="line"></span><br><span class="line">@import &quot;icons/*.png&quot;;</span><br><span class="line"></span><br><span class="line">@include all-icons-sprites();</span><br><span class="line"></span><br><span class="line">//这样使类名 main-logo 有 s03 的样式</span><br><span class="line">.main-logo&#123;</span><br><span class="line">    @include icons-sprite(&apos;s03&apos;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//也可以生成带伪类的样式 图片命名 如 a.png 和 a_hover.png</span><br></pre></td></tr></table></figure>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>通过 sass 和 less 等这种 css 预处理器，可以让我们更高效多书写样式。另外要提一下的就是 <a href="https://github.com/postcss/postcss" target="_blank" rel="noopener">postcss</a> 相关介绍和教程可跳阅读 <a href="http://www.w3cplus.com/blog/tags/516.html" target="_blank" rel="noopener">http://www.w3cplus.com/blog/tags/516.html</a></p>
+<h3 id="相关阅读"><a href="#相关阅读" class="headerlink" title="相关阅读"></a>相关阅读</h3><ul>
+<li><a href="http://www.ruanyifeng.com/blog/2012/11/compass.html" target="_blank" rel="noopener">阮一峰 - Compass 用法指南</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/SASS 用法指南/" rel="next" title="SASS 用法指南">
+                <i class="fa fa-chevron-left"></i> SASS 用法指南
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/javascript 随笔/" rel="prev" title="javascript 随笔">
+                javascript 随笔 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars3.githubusercontent.com/u/10380760?v=3&s=466"
+               alt="avilang" />
+          <p class="site-author-name" itemprop="name">avilang</p>
+          <p class="site-description motion-element" itemprop="description">爱折腾，爱分享，爱学习</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/avilang" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Compass"><span class="nav-number">1.</span> <span class="nav-text">什么是Compass</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目初始化"><span class="nav-number">3.</span> <span class="nav-text">项目初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译"><span class="nav-number">4.</span> <span class="nav-text">编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">5.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结语"><span class="nav-number">6.</span> <span class="nav-text">结语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关阅读"><span class="nav-number">7.</span> <span class="nav-text">相关阅读</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">avilang</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

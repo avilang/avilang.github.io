@@ -1,0 +1,718 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言本篇主要记录 javascript 中的一些特性，文章逻辑和排版比较随意，当然包含的内容，有很大的局限性，仅当草稿。 随笔严格模式 (use strict)除了正常运行模式，ECMAScript 5 添加了第二种运行模式：“严格模式”（strict mode）。顾名思义，这种模式使得 JavaScript 在更严格的条件下运行。 设立”严格模式“的目的，主要有以下几个：  消除 JavaScr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript 随笔">
+<meta property="og:url" content="http://avilang.me/2016/javascript 随笔/index.html">
+<meta property="og:site_name" content="Hello avilang">
+<meta property="og:description" content="前言本篇主要记录 javascript 中的一些特性，文章逻辑和排版比较随意，当然包含的内容，有很大的局限性，仅当草稿。 随笔严格模式 (use strict)除了正常运行模式，ECMAScript 5 添加了第二种运行模式：“严格模式”（strict mode）。顾名思义，这种模式使得 JavaScript 在更严格的条件下运行。 设立”严格模式“的目的，主要有以下几个：  消除 JavaScr">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://avilang.me/myimages/2016-11-04_01.jpg">
+<meta property="og:updated_time" content="2019-04-26T06:42:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript 随笔">
+<meta name="twitter:description" content="前言本篇主要记录 javascript 中的一些特性，文章逻辑和排版比较随意，当然包含的内容，有很大的局限性，仅当草稿。 随笔严格模式 (use strict)除了正常运行模式，ECMAScript 5 添加了第二种运行模式：“严格模式”（strict mode）。顾名思义，这种模式使得 JavaScript 在更严格的条件下运行。 设立”严格模式“的目的，主要有以下几个：  消除 JavaScr">
+<meta name="twitter:image" content="http://avilang.me/myimages/2016-11-04_01.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://avilang.me/2016/javascript 随笔/"/>
+
+  <title> javascript 随笔 | Hello avilang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hello avilang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                javascript 随笔
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-04T00:00:00+08:00" content="2016-11-04">
+              2016-11-04
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本篇主要记录 javascript 中的一些特性，文章逻辑和排版比较随意，当然包含的内容，有很大的局限性，仅当草稿。</p>
+<h3 id="随笔"><a href="#随笔" class="headerlink" title="随笔"></a>随笔</h3><h4 id="严格模式-use-strict"><a href="#严格模式-use-strict" class="headerlink" title="严格模式 (use strict)"></a>严格模式 (use strict)</h4><p>除了正常运行模式，ECMAScript 5 添加了第二种运行模式：“严格模式”（strict mode）。顾名思义，这种模式使得 JavaScript 在更严格的条件下运行。</p>
+<p>设立”严格模式“的目的，主要有以下几个：</p>
+<ul>
+<li>消除 JavaScript 语法的一些不合理、不严谨之处，减少一些怪异行为;</li>
+<li>增加更多报错的场合，消除代码运行的一些不安全之处，保证代码运行的安全；</li>
+<li>提高编译器效率，增加运行速度；</li>
+<li>为未来新版本的 JavaScript 做好铺垫；</li>
+</ul>
+<p>“严格模式”体现了 JavaScript 更合理、更安全、更严谨的发展方向。更多介绍可移步阅读 <a href="http://javascript.ruanyifeng.com/advanced/strict.html" target="_blank" rel="noopener">阮一峰 - 严格模式</a></p>
+<h4 id="包装对象"><a href="#包装对象" class="headerlink" title="包装对象"></a>包装对象</h4><p>在 JavaScript 中，”一切皆对象”，数组和函数本质上都是对象，就连三种原始类型的值：数值、字符串、布尔值在一定条件下，也会自动转为对象，也就是原始类型的”包装对象”。</p>
+<p>所谓”包装对象”，就是分别与数值、字符串、布尔值相对应的 <code>Number</code> 、 <code>String</code> 、 <code>Boolean</code> 三个原生对象。这三个原生对象可以把原始类型的值变成（包装成）对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> v1 = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">123</span>);</span><br><span class="line"><span class="keyword">var</span> v2 = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"abc"</span>);</span><br><span class="line"><span class="keyword">var</span> v3 = <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">typeof</span> v1  <span class="comment">// "object"</span></span><br><span class="line"><span class="keyword">typeof</span> v2  <span class="comment">// "object"</span></span><br><span class="line"><span class="keyword">typeof</span> v3  <span class="comment">// "object"</span></span><br><span class="line"></span><br><span class="line">v1 === <span class="number">123</span>  <span class="comment">// false</span></span><br><span class="line">v2 === <span class="string">"abc"</span>  <span class="comment">// false</span></span><br><span class="line">v3 === <span class="literal">true</span>  <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> v = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"abc"</span>);</span><br><span class="line">v.length <span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line"><span class="string">"abc"</span>.length <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<p>上面代码对字符串 abc 调用 length 属性，实际上是将字符串自动转为 String 对象的实例，再在其上调用 length 属性。这就叫原始类型的自动转换。</p>
+<p>abc 是一个字符串，属于原始类型，本身不能调用任何方法和属性。但当对 abc 调用 length 属性时，JavaScript 引擎自动将 abc 转化为一个包装对象实例，然后再对这个实例调用 length 属性，在得到返回值后，再自动销毁这个临时生成的包装对象实例。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'abc'</span>.charAt === <span class="built_in">String</span>.prototype.charAt   <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>注意：如果直接对原始类型的变量添加属性，是无效。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">"abc"</span>;</span><br><span class="line">s.p = <span class="number">123</span>;</span><br><span class="line">s.p  <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+<h4 id="数字类型"><a href="#数字类型" class="headerlink" title="数字类型"></a>数字类型</h4><p>根据 ECMAScript 标准，JavaScript 中只有一种数字类型：基于 <a href="https://zh.wikipedia.org/zh-cn/IEEE_754" target="_blank" rel="noopener">IEEE 754</a> 标准的双精度 64 位二进制格式的值，它并没有为整数给出一种特定的类型。除了能够表示浮点数外，还有一些带符号的值：<code>+Infinity</code>，<code>-Infinity</code>，<code>NaN</code></p>
+<p>注意浮点数的运算中，可能会出现“舍入误差”。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0.1 + 0.2 = 0.30000000000000004</span><br></pre></td></tr></table></figure>
+<p>产生这种误差的原因：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0.1 =&gt; 0.0001 1001 1001 1001…（无限循环）</span><br><span class="line">0.2 =&gt; 0.0011 0011 0011 0011…（无限循环）</span><br></pre></td></tr></table></figure></p>
+<p>双精度浮点数的小数部分最多支持 52 位，所以两者相加之后得到这么一串 <code>0.0100110011001100110011001100110011001100110011001100</code> 因浮点数小数位的限制而截断的二进制数字，这时候，我们再把它转换为十进制，就成了 0.30000000000000004</p>
+<p>相关阅读：<a href="http://www.chengfeilong.com/toFixed" target="_blank" rel="noopener">http://www.chengfeilong.com/toFixed</a></p>
+<h4 id="标记语句-labeled-statement"><a href="#标记语句-labeled-statement" class="headerlink" title="标记语句 (labeled statement)"></a>标记语句 (labeled statement)</h4><p>通常和 break 或 continue 语句一起使用。标记就是在一条语句前面加个可以引用的标识符，任何不是保留关键字的 javascript 标识符。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i, j;</span><br><span class="line"></span><br><span class="line">loop1:</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">   loop2:</span><br><span class="line">   <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; <span class="number">3</span>; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (i == <span class="number">1</span> &amp;&amp; j == <span class="number">1</span>) &#123;</span><br><span class="line">         <span class="keyword">continue</span> loop1;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"i = "</span> + i + <span class="string">", j = "</span> + j);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i, j;</span><br><span class="line"></span><br><span class="line">loop1:</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">   loop2:</span><br><span class="line">   <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; <span class="number">3</span>; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (i == <span class="number">1</span> &amp;&amp; j == <span class="number">1</span>) &#123;</span><br><span class="line">         <span class="keyword">break</span> loop1;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"i = "</span> + i + <span class="string">", j = "</span> + j);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可参阅 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/label" target="_blank" rel="noopener">labeled statement</a></p>
+<h4 id="判断-NaN-的方法"><a href="#判断-NaN-的方法" class="headerlink" title="判断 NaN 的方法"></a>判断 NaN 的方法</h4><p>isNaN 方法可以用来判断一个值是否为 NaN，isNaN 只对数值有效，如果传入其他值，会被先转成数值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">isNaN</span>(<span class="literal">NaN</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">isNaN</span>(<span class="number">123</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">isNaN</span>(<span class="string">'Hello'</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">isNaN</span>(&#123;&#125;) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">isNaN</span>([<span class="string">'xzy'</span>]) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">isNaN</span>([]) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">isNaN</span>([<span class="number">123</span>]) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">isNaN</span>([<span class="number">123</span>,<span class="number">456</span>]) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">isNaN</span>([<span class="string">'123'</span>]) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>因此判断 NaN 时要注意数据类型的转换。也可以自己封装一个 isNaN 函数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myIsNaN</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">typeof</span> value === <span class="string">'number'</span> &amp;&amp; <span class="built_in">isNaN</span>(value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>利用了 NaN 不等于自身的特性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myIsNaN</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value !== value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：如果数组中包含 NaN 下面的方法不适用]</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="literal">NaN</span>].indexOf(<span class="literal">NaN</span>) <span class="comment">// -1</span></span><br><span class="line">[<span class="literal">NaN</span>].lastIndexOf(<span class="literal">NaN</span>) <span class="comment">// -1</span></span><br></pre></td></tr></table></figure>
+<p>这是因为这两个方法内部，使用严格相等运算符（===）进行比较，而 NaN 是唯一一个不等于自身的值。</p>
+<h4 id="字符处理"><a href="#字符处理" class="headerlink" title="字符处理"></a>字符处理</h4><p>在 javascript 中处理字符需要注意一些特殊字符，在这里紧给出简单例子。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">'\ud834\udf06'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(s);  <span class="comment">// 𝌆</span></span><br><span class="line"><span class="built_in">console</span>.log(s.length);  <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/^.$/</span>.test(s));  <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>特殊字符 <code>𝌆</code> length 属性为 2 ，匹配单个字符的正则表达式会失败。具体原因可<a href="http://javascript.ruanyifeng.com/grammar/string.html#toc5" target="_blank" rel="noopener">点击查阅</a></p>
+<h4 id="数组本质"><a href="#数组本质" class="headerlink" title="数组本质"></a>数组本质</h4><p>数组属于一种特殊的对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line"><span class="built_in">Object</span>.keys(arr);  <span class="comment">// ['0', '1', '2']</span></span><br></pre></td></tr></table></figure>
+<p><code>Object.keys</code> 方法返回数组的所有键名。</p>
+<p>还需要要注意数组的空位，即 <code>[,1,,3]</code> 这类型数组遍历的时候需要注意，利用 <code>for ... in</code> 结构会跳过空位。如果读取数组的空位，则返回 <code>undefined</code>。</p>
+<p>空位和 <code>undefined</code> 是不一样的，如果数字某个位置是 <code>undefined</code> 遍历时不会被跳过。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.keys([,<span class="number">1</span>,,<span class="number">3</span>]);  <span class="comment">// ['1', '3']</span></span><br></pre></td></tr></table></figure>
+<h4 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h4><h5 id="且运算符-amp-amp"><a href="#且运算符-amp-amp" class="headerlink" title="且运算符 (&amp;&amp;)"></a>且运算符 (&amp;&amp;)</h5><p>且运算符的运算规则是：如果第一个运算子的布尔值为true，则返回第二个运算子的值（注意是值，不是布尔值）；如果第一个运算子的布尔值为false，则直接返回第一个运算子的值，且不再对第二个运算子求值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"t"</span> &amp;&amp; <span class="string">""</span> <span class="comment">// ""</span></span><br><span class="line"><span class="string">"t"</span> &amp;&amp; <span class="string">"f"</span> <span class="comment">// "f"</span></span><br><span class="line"><span class="string">"t"</span> &amp;&amp; (<span class="number">1</span>+<span class="number">2</span>) <span class="comment">// 3</span></span><br><span class="line"><span class="string">""</span> &amp;&amp; <span class="string">"f"</span> <span class="comment">// ""</span></span><br><span class="line"><span class="string">""</span> &amp;&amp; <span class="string">""</span> <span class="comment">// ""</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line">(<span class="number">1</span><span class="number">-1</span>) &amp;&amp; (x+=<span class="number">1</span>) <span class="comment">// 0</span></span><br><span class="line">x <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (i !== <span class="number">0</span> )&#123;</span><br><span class="line">  doSomething();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等价于</span></span><br><span class="line"></span><br><span class="line">i &amp;&amp; doSomething();</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">true</span> &amp;&amp; <span class="string">'foo'</span> &amp;&amp; <span class="string">''</span> &amp;&amp; <span class="number">4</span> &amp;&amp; <span class="string">'foo'</span> &amp;&amp; <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h5 id="或运算符"><a href="#或运算符" class="headerlink" title="或运算符 (||)"></a>或运算符 (||)</h5><p>或运算符的运算规则是：如果第一个运算子的布尔值为true，则返回第一个运算子的值，且不再对第二个运算子求值；如果第一个运算子的布尔值为false，则返回第二个运算子的值。</p>
+<p>你可以<a href="http://javascript.ruanyifeng.com/grammar/operator.html" target="_blank" rel="noopener">点击阅读</a>有关运算符的知识，如位运算符，void 运算符的一些用法。</p>
+<h4 id="Math-对象"><a href="#Math-对象" class="headerlink" title="Math 对象"></a>Math 对象</h4><p>Math 对象是 JavaScript 的内置对象，提供一系列数学常数和数学方法。该对象不是构造函数，所以不能生成实例，所有的属性和方法都必须在 Math 对象上调用。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Math</span>()  <span class="comment">// TypeError: Math is not a constructor</span></span><br></pre></td></tr></table></figure>
+<h4 id="JSON-对象"><a href="#JSON-对象" class="headerlink" title="JSON 对象"></a>JSON 对象</h4><p>有关 JSON 对象的详细介绍可点击阅读: <a href="http://javascript.ruanyifeng.com/stdlib/json.html" target="_blank" rel="noopener">http://javascript.ruanyifeng.com/stdlib/json.html</a> 其中像 <code>JSON.stringify()</code> <code>JSON.parse()</code> 的方法有多个参数。</p>
+<h4 id="RegExp-对象"><a href="#RegExp-对象" class="headerlink" title="RegExp 对象"></a>RegExp 对象</h4><p>有关 JavaScript 的正则可点击阅读: <a href="http://javascript.ruanyifeng.com/stdlib/regexp.html" target="_blank" rel="noopener">http://javascript.ruanyifeng.com/stdlib/regexp.html</a></p>
+<h4 id="new-命令"><a href="#new-命令" class="headerlink" title="new 命令"></a>new 命令</h4><p><code>new</code> 命令的作用，就是执行构造函数，返回一个实例对象。一般构造函数首字母大写。注意：应该避免出现不使用 new 命令、直接调用构造函数的情况，原因如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Vehicle = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.price = <span class="number">1000</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> v = Vehicle();</span><br><span class="line">v.price  <span class="comment">// TypeError: Cannot read property 'price' of undefined(…)</span></span><br><span class="line"></span><br><span class="line">price <span class="comment">// 1000</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，调用 Vehicle 构造函数时，忘了加上 new 命令。结果 price 属性变成了全局变量，而变量 v 变成了 undefined</p>
+<p>为了保证构造函数必须与 new 命令一起使用，一个解决办法是，在构造函数内部使用严格模式，即第一行加上 <code>use strict</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fubar</span>(<span class="params">foo, bar</span>)</span>&#123;</span><br><span class="line"><span class="meta">  "use strict"</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">this</span>._foo = foo;</span><br><span class="line">  <span class="keyword">this</span>._bar = bar;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Fubar()  <span class="comment">// ypeError: Cannot set property '_foo' of undefined(…)</span></span><br></pre></td></tr></table></figure>
+<p>上面代码的 Fubar 为构造函数，<code>use strict</code> 命令保证了该函数在严格模式下运行。由于在严格模式中，函数内部的 this 不能指向全局对象，默认等于 undefined ，导致不加 new 调用会报错。( JavaScript 不允许对 undefined 添加属性)</p>
+<p>另一个解决办法，是在构造函数内部判断是否使用 new 命令，如果发现没有使用，则直接返回一个实例对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fubar</span>(<span class="params">foo, bar</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!(<span class="keyword">this</span> <span class="keyword">instanceof</span> Fubar)) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Fubar(foo, bar);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">this</span>._foo = foo;</span><br><span class="line">  <span class="keyword">this</span>._bar = bar;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Fubar(<span class="number">1</span>, <span class="number">2</span>)._foo <span class="comment">// 1</span></span><br><span class="line">(<span class="keyword">new</span> Fubar(<span class="number">1</span>, <span class="number">2</span>))._foo <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中的构造函数，不管加不加 new 命令，都会得到同样的结果。<br>更详细可阅读 <a href="http://javascript.ruanyifeng.com/oop/basic.html#toc2" target="_blank" rel="noopener">http://javascript.ruanyifeng.com/oop/basic.html#toc2</a></p>
+<h4 id="Function-prototype-call"><a href="#Function-prototype-call" class="headerlink" title="Function.prototype.call"></a>Function.prototype.call</h4><p>这里紧对 <code>Function.prototype.call</code> 做个简单的介绍，有关更详细的介绍可以阅读 <a href="http://es5.github.io/#x15.3.4.4" target="_blank" rel="noopener">Annotated ECMAScript 5.1 </a> 语言规范里的介绍,在此之前先看看下面代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> test = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'hello world'</span>)</span><br><span class="line">  <span class="keyword">return</span> <span class="string">'fsjohnhuang'</span></span><br><span class="line">&#125;</span><br><span class="line">test.call() <span class="comment">// A</span></span><br><span class="line"><span class="built_in">Function</span>.prototype.call(test) <span class="comment">// B</span></span><br><span class="line"><span class="built_in">Function</span>.prototype.call.call(test) <span class="comment">// C</span></span><br><span class="line"><span class="built_in">Function</span>.prototype.call.call(<span class="built_in">Function</span>.prototype.call, test) <span class="comment">// D</span></span><br></pre></td></tr></table></figure>
+<p>运行结果： <code>A C D</code> 控制台显示 hello world 并返回 fsjohnhuang <code>B</code> 返回 undefined 且不会调用 test 函数。这是怎么回事？</p>
+<p>以下是参照规范的伪代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.call = <span class="function"><span class="keyword">function</span>(<span class="params">thisArg, arg1, arg2, ...</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// this 指向调用 call 的那个对象或函数</span></span><br><span class="line">  <span class="comment">// 如 Function.prototype.call(test) 那么这时 this 就是 Function.prototype</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 1. 调用内部的 IsCallable(this) 检查是否可调用，返回 false 则抛 TypeError</span></span><br><span class="line">  <span class="keyword">if</span> (![[IsCallable]](<span class="keyword">this</span>)) <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>()</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2. 创建一个空列表</span></span><br><span class="line">  <span class="comment">// 3. 将 arg1 及后面的入参保存到 argList 中</span></span><br><span class="line">  <span class="keyword">var</span> argList = [].slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 4. 调用内部的[[Call]]函数</span></span><br><span class="line">  <span class="keyword">return</span> [[Call]](<span class="keyword">this</span>, thisArg, argList)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>明白了这层关系之后，就比较容易的推导上面例子的运行的一个流程了。再看一下两个例子</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> slice = <span class="built_in">Function</span>.prototype.call.bind(<span class="built_in">Array</span>.prototype.slice);</span><br><span class="line"></span><br><span class="line">slice([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">0</span>, <span class="number">1</span>) <span class="comment">// [1]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.resolve = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　<span class="keyword">this</span>.forEach(<span class="built_in">Function</span>.prototype.call, <span class="built_in">Function</span>.prototype.call)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> cbs = [<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="number">1</span>)&#125;, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="number">2</span>)&#125;]</span><br><span class="line">cbs.resolve() <span class="comment">// 1 2</span></span><br></pre></td></tr></table></figure>
+<p>可以参考 <a href="http://www.cnblogs.com/fsjohnhuang/p/4160942.html" target="_blank" rel="noopener">JS魔法堂：再次认识 Function.prototype.call</a></p>
+<h4 id="instanceof-运算符深入剖析"><a href="#instanceof-运算符深入剖析" class="headerlink" title="instanceof 运算符深入剖析"></a>instanceof 运算符深入剖析</h4><p>在此之前先看看 instanceof 常规用法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> foo = <span class="keyword">new</span> Foo();</span><br><span class="line"><span class="built_in">console</span>.log(foo <span class="keyword">instanceof</span> Foo)  <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Aoo</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Foo.prototype = <span class="keyword">new</span> Aoo();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> foo = <span class="keyword">new</span> Foo();</span><br><span class="line"><span class="built_in">console</span>.log(foo <span class="keyword">instanceof</span> Foo)  <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(foo <span class="keyword">instanceof</span> Aoo)  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>instanceof 复杂用法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>);  <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Function</span> <span class="keyword">instanceof</span> <span class="built_in">Function</span>);  <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span> <span class="keyword">instanceof</span> <span class="built_in">Number</span>);  <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span> <span class="keyword">instanceof</span> <span class="built_in">String</span>);  <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Function</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>);  <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(Foo <span class="keyword">instanceof</span> <span class="built_in">Function</span>);  <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(Foo <span class="keyword">instanceof</span> Foo);  <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>要理解上面代码的执行结果，需要从两个方面着手：语言规范中是如何定义这个运算符的 和 JavaScript 原型继承机制。</p>
+<p>规范中 instanceof 运算符定义,这里给出伪代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">instance_of</span>(<span class="params">L, R</span>) </span>&#123;  <span class="comment">// L 表示左表达式, R 表示右表达式</span></span><br><span class="line">  <span class="keyword">var</span> O = R.prototype;  <span class="comment">// 取 R 的显示原型</span></span><br><span class="line">  L = L.__proto__;  <span class="comment">// 取 L 的隐式原型</span></span><br><span class="line">  <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (L === <span class="literal">null</span>)</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span> (O === L)  <span class="comment">// 这里重点：当 O 严格等于 L 时，返回 true</span></span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    L = L.__proto__;</span><br><span class="line">  &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>JavaScript 原型继承机制：在原型继承结构里面，规范中用 <code>[[Prototype]]</code> 表示对象隐式的原型，在 JavaScript 中用 <strong>proto</strong> 表示。所有 JavaScript 对象都有 <code>__proto__</code> 属性，但只有 <code>Object.prototype.__proto__</code> 为 <code>null</code> 这个属性指向它的原型对象，即构造函数的 prototype<br>属性。</p>
+<p>原型继承图</p>
+<p><img src="/myimages/2016-11-04_01.jpg" alt="" title="JavaScript 原型链"></p>
+<p>下面简要分析下 <code>console.log(Foo instanceof Foo)</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 为了方便表述，首先区分左侧表达式和右侧表达式</span></span><br><span class="line"> FooL = Foo, FooR = Foo;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 下面根据规范逐步推演</span></span><br><span class="line"> O = FooR.prototype = Foo.prototype</span><br><span class="line"> L = FooL.__proto__ = <span class="built_in">Function</span>.prototype</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 第一次判断</span></span><br><span class="line"> O != L</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 循环再次查找 L 是否还有 __proto__</span></span><br><span class="line"> L = <span class="built_in">Function</span>.prototype.__proto__ = <span class="built_in">Object</span>.prototype</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 第二次判断</span></span><br><span class="line"> O != L</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 再次循环查找 L 是否还有 __proto__</span></span><br><span class="line"> L = <span class="built_in">Object</span>.prototype.__proto__ = <span class="literal">null</span></span><br><span class="line"></span><br><span class="line"> <span class="comment">// 第三次判断</span></span><br><span class="line"> L == <span class="literal">null</span></span><br><span class="line"></span><br><span class="line"> <span class="comment">// 返回 false</span></span><br></pre></td></tr></table></figure>
+<p>再看看下面例子的运行结果，帮助理解</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype === <span class="built_in">Function</span>.__proto__  <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Number</span>.prototype === <span class="built_in">Number</span>.__proto__  <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Number</span>.__proto__ === <span class="built_in">Object</span>.__proto__  <span class="comment">// true</span></span><br><span class="line"><span class="built_in">String</span>.__proto__ === <span class="built_in">Object</span>.__proto__  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>相关文章可查阅<br><a href="http://www.ibm.com/developerworks/cn/web/1306_jiangjj_jsinstanceof/" target="_blank" rel="noopener">JavaScript instanceof 运算符深入剖析</a><br><a href="http://javascript.ruanyifeng.com/oop/inheritance.html" target="_blank" rel="noopener">JavaScript 继承</a><br><a href="https://github.com/creeperyang/blog/issues/9" target="_blank" rel="noopener">从<strong>proto</strong>和prototype来深入理解JS对象和原型链</a></p>
+<h4 id="Event-对象"><a href="#Event-对象" class="headerlink" title="Event 对象"></a>Event 对象</h4><p>事件发生以后，会生成一个事件对象，作为参数传给监听函数。浏览器原生提供一个 Event 对象，所有的事件都是这个对象的实例，或者说继承了 Event.prototype 对象。</p>
+<p>Event 对象本身就是一个构造函数，可以用来生成新的实例。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">event = <span class="keyword">new</span> Event(typeArg, eventInit);</span><br></pre></td></tr></table></figure>
+<p>Event 构造函数接受两个参数。第一个参数是字符串，表示事件的名称；第二个参数是一个对象，表示事件对象的配置。该参数可以有以下两个属性。</p>
+<ul>
+<li>bubbles：布尔值，可选，默认为 false ，表示事件对象是否冒泡。</li>
+<li>cancelable：布尔值，可选，默认为 false ，表示事件是否可以被取消。</li>
+</ul>
+<h5 id="自定义事件和事件模拟"><a href="#自定义事件和事件模拟" class="headerlink" title="自定义事件和事件模拟"></a>自定义事件和事件模拟</h5><p>除了浏览器预定义的那些事件，用户还可以自定义事件，然后手动触发。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 新建事件实例</span></span><br><span class="line"><span class="keyword">var</span> event = <span class="keyword">new</span> Event(<span class="string">'build'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加监听函数</span></span><br><span class="line">elem.addEventListener(<span class="string">'build'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123; ... &#125;, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 触发事件</span></span><br><span class="line">elem.dispatchEvent(event);</span><br></pre></td></tr></table></figure>
+<p>上面代码触发了自定义事件，该事件会层层向上冒泡。在冒泡过程中，如果有一个元素定义了该事件的监听函数，该监听函数就会触发。</p>
+<p>Event 构造函数只能指定事件名，不能在事件上绑定数据。如果需要在触发事件的同时，传入指定的数据，需要使用 <code>CustomEvent</code> 构造函数生成自定义的事件对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myEvent = <span class="keyword">new</span> CustomEvent(<span class="string">"myevent"</span>, &#123;</span><br><span class="line">  detail: &#123;</span><br><span class="line">    foo: <span class="string">"bar"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  bubbles: <span class="literal">true</span>,</span><br><span class="line">  cancelable: <span class="literal">false</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">el.addEventListener(<span class="string">'myevent'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Hello '</span> + event.detail.foo);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">el.dispatchEvent(myEvent);</span><br></pre></td></tr></table></figure>
+<p>由于 IE 不支持上述的两个 API ，如果在 IE 中自定义事件，需要其他写法，详细可阅读 <a href="http://javascript.ruanyifeng.com/dom/event.html#toc52" target="_blank" rel="noopener">阮一峰 - 自定义事件和事件模拟</a></p>
+<p>注意： <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener" target="_blank" rel="noopener">addEventListener</a> 方法的第二个参数是实现 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/EventListener" target="_blank" rel="noopener">EventListener</a> 接口的一个对象或函数，具体应用可以看 <a href="https://github.com/cubiq/iscroll" target="_blank" rel="noopener">iscroll</a></p>
+<h5 id="事件的传播"><a href="#事件的传播" class="headerlink" title="事件的传播"></a>事件的传播</h5><p>当一个事件发生以后，它会在不同的 DOM 节点之间传播(propagation)。这种传播分成三个阶段：</p>
+<ul>
+<li>第一阶段：从 window 对象传导到目标节点，称为“捕获阶段”（capture phase）。</li>
+<li>第二阶段：在目标节点上触发，称为“目标阶段”（target phase）。</li>
+<li>第三阶段：从目标节点传导回window对象，称为“冒泡阶段”（bubbling phase）。</li>
+</ul>
+<p>假设 html 结构如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;div&quot;&gt;&lt;p id=&quot;p&quot;&gt;content&lt;/p&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> oDiv = <span class="built_in">document</span>.getElementById(<span class="string">'div'</span>);</span><br><span class="line"><span class="keyword">var</span> oP   = <span class="built_in">document</span>.getElementById(<span class="string">'p'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> myEvent = <span class="keyword">new</span> CustomEvent(<span class="string">"myevent"</span>, &#123;</span><br><span class="line">  detail: &#123;</span><br><span class="line">    foo: <span class="string">"bar"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  bubbles: <span class="literal">true</span>,</span><br><span class="line">  cancelable: <span class="literal">false</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> phases = &#123;</span><br><span class="line">  <span class="number">1</span>: <span class="string">'capture'</span>,</span><br><span class="line">  <span class="number">2</span>: <span class="string">'target'</span>,</span><br><span class="line">  <span class="number">3</span>: <span class="string">'bubble'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> callback = <span class="function"><span class="keyword">function</span> <span class="title">callback</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">                  <span class="keyword">var</span> tag = event.currentTarget.tagName;</span><br><span class="line">                  <span class="keyword">var</span> phase = phases[event.eventPhase];</span><br><span class="line">                  <span class="built_in">console</span>.log(<span class="string">"Tag: '"</span> + tag + <span class="string">"'. EventPhase: '"</span> + phase + <span class="string">"'"</span>);</span><br><span class="line">               &#125;</span><br><span class="line"></span><br><span class="line">oDiv.addEventListener(<span class="string">'myevent'</span>, callback, <span class="literal">true</span>);</span><br><span class="line">oDiv.addEventListener(<span class="string">'myevent'</span>, callback, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">oP.addEventListener(<span class="string">'myevent'</span>, callback, <span class="literal">true</span>);</span><br><span class="line">oP.addEventListener(<span class="string">'myevent'</span>, callback, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// oDiv.dispatchEvent(myEvent);</span></span><br><span class="line">oP.dispatchEvent(myEvent);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 运行结果</span></span><br><span class="line"><span class="comment">// Tag: 'DIV'. EventPhase: 'capture'</span></span><br><span class="line"><span class="comment">// Tag: 'P'. EventPhase: 'target'</span></span><br><span class="line"><span class="comment">// Tag: 'P'. EventPhase: 'target'</span></span><br><span class="line"><span class="comment">// Tag: 'DIV'. EventPhase: 'bubble'</span></span><br></pre></td></tr></table></figure>
+<p>上面代码采用自定义事件的方式，可以看出 myevent 事件被触发了四次： p 节点的捕获阶段和冒泡阶段各 1 次， div 节点的捕获阶段和冒泡阶段各 1 次。</p>
+<ol>
+<li>捕获阶段：事件从 div 向 p 传播时，触发 div 的 click 事件；</li>
+<li>目标阶段：事件从 div 到达 p 时，触发 p 的 click 事件；</li>
+<li>目标阶段：事件离开 p 时，触发 p 的 click 事件；</li>
+<li>冒泡阶段：事件从 p 传回 div 时，再次触发 div 的 click 事件。</li>
+</ol>
+<p>注意：用户点击网页的时候，浏览器总是假定 click 事件的目标节点，就是点击位置的嵌套最深的那个节点。</p>
+<p>事件传播的最上层对象是 window ，接着依次是 document ，html 和 body 。也就是说，如果 body 元素中有一个 div 元素，点击该元素。事件的传播顺序，在捕获阶段依次为 window、 document、 html、 body、 div ，在冒泡阶段依次为 div、 body、 html、 document、 window</p>
+<p>这里只是简要的说明了有关事件的部分知识点，相关更多的介绍如：节点的操作，CSS 操作等 DOM 的相关知识可详细阅读 <a href="http://javascript.ruanyifeng.com/#toc4" target="_blank" rel="noopener">阮一峰 - DOM</a></p>
+<p>PS:低版本IE不支持事件捕获</p>
+<h4 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h4><p>setTimeout 和 setInterval 的运行机制是，将指定的代码移出本次执行，等到下一轮 Event Loop 时，再检查是否到了指定时间。如果到了，就执行对应的代码；如果不到，就等到再下一轮 Event Loop 时重新判断。这意味着， setTimeout 指定的代码，必须等到本次执行的所有代码都执行完，才会执行。</p>
+<p>每一轮 Event Loop 时，都会将“任务队列”中需要执行的任务，一次执行完。 setTimeout 和 setInterval 都是把任务添加到“任务队列”的尾部。因此，它们实际上要等到当前脚本的所有同步任务执行完，然后再等到本次 Event Loop 的“任务队列”的所有任务执行完，才会开始执行。由于前面的任务到底需要多少时间执行完，是不确定的，所以没有办法保证， setTimeout 和 setInterval 指定的任务，一定会按照预定时间执行。</p>
+<p>可以运行下面例子看看：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Timeout"</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"a() 开始运行"</span>);</span><br><span class="line">  b(x);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"a() 结束运行"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params">y</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"b() 开始运行"</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"传入的值为"</span> + y);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"b() 结束运行"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"当前任务开始"</span>);</span><br><span class="line">a(<span class="number">42</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"当前任务结束"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 当前任务开始</span></span><br><span class="line"><span class="comment">// a() 开始运行</span></span><br><span class="line"><span class="comment">// b() 开始运行</span></span><br><span class="line"><span class="comment">// 传入的值为42</span></span><br><span class="line"><span class="comment">// b() 结束运行</span></span><br><span class="line"><span class="comment">// a() 结束运行</span></span><br><span class="line"><span class="comment">// 当前任务结束</span></span><br><span class="line"><span class="comment">// Timeout</span></span><br></pre></td></tr></table></figure>
+<p>应用：用户在输入框输入文本转换大写英文字母，假设页面上有一元素 <code>&lt;input type=&quot;text&quot; id=&quot;input-box&quot;&gt;</code> 脚本如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'input-box'</span>).onkeypress = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">this</span>.value = <span class="keyword">this</span>.value.toUpperCase();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'input-box'</span>).onkeypress = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> self = <span class="keyword">this</span>;</span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    self.value = self.value.toUpperCase();</span><br><span class="line">  &#125;, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可分别测试上面代码，看看异同。具体可参考阅读以下两篇文章：<br><a href="http://javascript.ruanyifeng.com/bom/engine.html" target="_blank" rel="noopener">阮一峰 - 浏览器的JavaScript引擎</a><br><a href="http://javascript.ruanyifeng.com/bom/timer.html" target="_blank" rel="noopener">阮一峰 - 定时器</a></p>
+<p>有关于 Event Loop 的介绍可以阅读以下文章：<br><a href="http://www.cnblogs.com/xiaozhi_5638/p/4816265.html" target="_blank" rel="noopener">nodejs事件轮询详述</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/EventLoop" target="_blank" rel="noopener">并发模型与Event Loop</a><br><a href="http://www.ruanyifeng.com/blog/2013/10/event_loop.html" target="_blank" rel="noopener">什么是 Event Loop？</a><br><a href="https://cnodejs.org/topic/50462f51329c5139760bff98" target="_blank" rel="noopener">理解Node.js的event loop</a></p>
+<h4 id="JavaScript-的异步处理"><a href="#JavaScript-的异步处理" class="headerlink" title="JavaScript 的异步处理"></a>JavaScript 的异步处理</h4><p>JavaScript 语言的执行环境是”单线程”（single thread）。所谓”单线程”，就是指一次只能完成一件任务。如果有多个任务，就必须排队，前面一个任务完成，再执行后面一个任务。</p>
+<p>这种模式的好处是实现起来比较简单，执行环境相对单纯；坏处是只要有一个任务耗时很长，后面的任务都必须排队等着，会拖延整个程序的执行。常见的浏览器无响应（假死），往往就是因为某一段 Javascript 代码长时间运行（比如死循环），导致整个页面卡在这个地方，其他任务无法执行。下文简要介绍在 JavaScript 中异步的处理方式。</p>
+<h5 id="定时器方式"><a href="#定时器方式" class="headerlink" title="定时器方式"></a>定时器方式</h5><p>利用 <code>setTimeout</code> 最简单的一种和常用的异步处理方式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   <span class="comment">// ...</span></span><br><span class="line">&#125;, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<h5 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">callback</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">        callback();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>回调函数的优点是简单、容易理解和部署，缺点是不利于代码的阅读和维护，各个部分之间高度耦合，使得程序结构混乱、流程难以追踪（尤其是回调函数嵌套的情况），而且每个任务只能指定一个回调函数。</p>
+<h5 id="事件监听"><a href="#事件监听" class="headerlink" title="事件监听"></a>事件监听</h5><p>这种方法的优点是比较容易理解，可以绑定多个事件，每个事件可以指定多个回调函数。缺点是整个程序都要变成事件驱动型，运行流程会变得很不清晰。简单的例子就像 jQuery 绑定自定义事件然后达到一定条件后主动触发。</p>
+<h5 id="发布-订阅模式"><a href="#发布-订阅模式" class="headerlink" title="发布/订阅模式"></a>发布/订阅模式</h5><p>该模式又叫观察者模式,它定义了对象间的一种一对多的依赖关系，以便一个对象的状态发生变化时，所有依赖于它的对象都得到通知并自动刷新。下面给出一个 <a href="https://github.com/addyosmani/pubsubz" target="_blank" rel="noopener">pubsubz</a> 的源码。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">;(<span class="function"><span class="keyword">function</span> (<span class="params"> window, doc, undef </span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> topics = &#123;&#125;,</span><br><span class="line">        subUid = <span class="number">-1</span>,</span><br><span class="line">        pubsubz =&#123;&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 发布</span></span><br><span class="line">    pubsubz.publish = <span class="function"><span class="keyword">function</span> (<span class="params"> topic, args </span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!topics[topic]) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> subscribers = topics[topic],</span><br><span class="line">                len = subscribers ? subscribers.length : <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span> (len--) &#123;</span><br><span class="line">                subscribers[len].func(topic, args);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 订阅</span></span><br><span class="line">    pubsubz.subscribe = <span class="function"><span class="keyword">function</span> (<span class="params"> topic, func </span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!topics[topic]) &#123;</span><br><span class="line">            topics[topic] = [];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> token = (++subUid).toString();</span><br><span class="line">        topics[topic].push(&#123;</span><br><span class="line">            token: token,</span><br><span class="line">            func: func</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> token;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 退订</span></span><br><span class="line">    pubsubz.unsubscribe = <span class="function"><span class="keyword">function</span> (<span class="params"> token </span>) </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> m <span class="keyword">in</span> topics) &#123;</span><br><span class="line">            <span class="keyword">if</span> (topics[m]) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, j = topics[m].length; i &lt; j; i++) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (topics[m][i].token === token) &#123;</span><br><span class="line">                        topics[m].splice(i, <span class="number">1</span>);</span><br><span class="line">                        <span class="keyword">return</span> token;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    getPubSubz = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> pubsubz;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">window</span>.pubsubz = getPubSubz();</span><br><span class="line"></span><br><span class="line">&#125;( <span class="keyword">this</span>, <span class="keyword">this</span>.document ));</span><br></pre></td></tr></table></figure>
+<p>使用方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> testSubscriber = <span class="function"><span class="keyword">function</span>(<span class="params"> topics , data </span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log( topics + <span class="string">": "</span> + data );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> testSubscription = pubsubz.subscribe( <span class="string">'example1'</span>, testSubscriber );</span><br><span class="line"></span><br><span class="line">pubsubz.publish( <span class="string">'example1'</span>, <span class="string">'hello world!'</span> );</span><br><span class="line">pubsubz.publish( <span class="string">'example1'</span>, [<span class="string">'test'</span>,<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>] );</span><br><span class="line">pubsubz.publish( <span class="string">'example1'</span>, [&#123;<span class="string">'color'</span>:<span class="string">'blue'</span>&#125;,&#123;<span class="string">'text'</span>:<span class="string">'hello'</span>&#125;] );</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    pubsubz.unsubscribe( testSubscription );</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">pubsubz.publish( <span class="string">'example1'</span>, <span class="string">'hello again!'</span> );</span><br></pre></td></tr></table></figure>
+<p>从源码可以看出，内部主要实现了 发布，订阅，退订 这三个方法。观察者的使用场合就是：当一个对象的改变需要同时改变其它对象，并且它不知道具体有多少对象需要改变的时候，就应该考虑使用观察者模式。有关该模式的更多介绍可以阅读 <a href="http://www.cnblogs.com/TomXu/archive/2012/03/02/2355128.html" target="_blank" rel="noopener">深入理解JavaScript系列（32）：设计模式之观察者模式</a></p>
+<h5 id="Promise-对象"><a href="#Promise-对象" class="headerlink" title="Promise 对象"></a>Promise 对象</h5><p>Promise 对象是 CommonJS 工作组提出的一种规范，目的是为异步操作提供统一接口。在 ECMAScript 6 之前 JavaScript 语言原生是不支持 Promise 对象的。</p>
+<p>首先，它是一个对象，也就是说与其他 JavaScript 对象的用法，没有什么两样；其次，它起到代理作用，充当异步操作与回调函数之间的中介。它使得异步操作具备同步操作的接口，使得程序具备正常的同步运行的流程，回调函数不必再一层层嵌套。</p>
+<p>有关更多异步处理可以参阅读下面给出的文章<br><a href="http://javascript.ruanyifeng.com/advanced/promise.html" target="_blank" rel="noopener">阮一峰 - Promise</a><br><a href="http://www.oschina.net/translate/event-based-programming-what-async-has-over-sync" target="_blank" rel="noopener">基于事件的 JavaScript 编程：异步与同步</a><br><a href="http://javascript.ruanyifeng.com/jquery/deferred.html" target="_blank" rel="noopener">jQuery.Deferred对象</a></p>
+<h4 id="JavaScript和有限状态机"><a href="#JavaScript和有限状态机" class="headerlink" title="JavaScript和有限状态机"></a>JavaScript和有限状态机</h4><p>有限状态机（Finite-state machine）是一个非常有用的模型，简单说，它有三个特征：</p>
+<ul>
+<li>状态总数（state）是有限的</li>
+<li>任一时刻，只处在一种状态之中</li>
+<li>某种条件下，会从一种状态转变（transition）到另一种状态</li>
+</ul>
+<p>有关该模式的实现，可以查看 <a href="https://github.com/jakesgordon/javascript-state-machine" target="_blank" rel="noopener">javascript-state-machine</a> ，在某些业务场景下应用，能更好的组织代码。</p>
+<p>相关阅读：<br><a href="http://javascript.ruanyifeng.com/advanced/fsm.html" target="_blank" rel="noopener">阮一峰 - JavaScript与有限状态机</a><br><a href="http://www.cnblogs.com/TomXu/archive/2012/04/18/2437099.html" target="_blank" rel="noopener">深入理解JavaScript系列（43）：设计模式之状态模式</a></p>
+<h4 id="Web-Worker"><a href="#Web-Worker" class="headerlink" title="Web Worker"></a>Web Worker</h4><p><a href="http://javascript.ruanyifeng.com/htmlapi/webworker.html" target="_blank" rel="noopener">http://javascript.ruanyifeng.com/htmlapi/webworker.html</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Workers_API/Using_web_workers" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Workers_API/Using_web_workers</a><br><a href="http://www.alloyteam.com/2015/11/deep-in-web-worker/" target="_blank" rel="noopener">http://www.alloyteam.com/2015/11/deep-in-web-worker/</a><br><a href="http://www.ibm.com/developerworks/cn/web/1112_sunch_webworker/index.html" target="_blank" rel="noopener">http://www.ibm.com/developerworks/cn/web/1112_sunch_webworker/index.html</a></p>
+<h4 id="值传递-OR-引用传递"><a href="#值传递-OR-引用传递" class="headerlink" title="值传递 OR 引用传递"></a>值传递 OR 引用传递</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeStuff</span>(<span class="params">a, b, c</span>) </span>&#123;</span><br><span class="line">  a = a * <span class="number">10</span>;</span><br><span class="line">  b.item = <span class="string">"changed"</span>;</span><br><span class="line">  c = &#123;<span class="attr">item</span>: <span class="string">"changed"</span>&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> obj1 = &#123;<span class="attr">item</span>: <span class="string">"unchanged"</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;<span class="attr">item</span>: <span class="string">"unchanged"</span>&#125;;</span><br><span class="line"></span><br><span class="line">changeStuff(num, obj1, obj2);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num);</span><br><span class="line"><span class="built_in">console</span>.log(obj1.item);    </span><br><span class="line"><span class="built_in">console</span>.log(obj2.item);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>If it was pure pass by value, then changing <code>obj1.item</code> would have no effect on the <code>obj1</code> outside of the function. If it was pure pass by reference, then everything would have changed. <code>num</code> would be <code>100</code>, and <code>obj2.item</code> would read <code>changed</code>.</p>
+</blockquote>
+<blockquote>
+<p>Instead, the situation is that the item passed in is passed by value. But the item that is passed by value is itself a reference. Technically, this is called <a href="https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_sharing" target="_blank" rel="noopener">call-by-sharing</a>.</p>
+</blockquote>
+<blockquote>
+<p>In practical terms, this means that if you change the parameter itself (as with <code>num</code> and <code>obj2</code>), that won’t affect the item that was fed into the parameter. But if you change the INTERNALS of the parameter, that will propagate back up (as with <code>obj1</code>).</p>
+</blockquote>
+<p>详细可阅读<a href="http://stackoverflow.com/questions/518000/is-javascript-a-pass-by-reference-or-pass-by-value-language" target="_blank" rel="noopener">Is JavaScript a pass-by-reference or pass-by-value language?</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/Sass 之 Compass 用法指南/" rel="next" title="Sass 之 Compass 用法指南">
+                <i class="fa fa-chevron-left"></i> Sass 之 Compass 用法指南
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/localStorage 相关阅读/" rel="prev" title="localStorage 相关阅读">
+                localStorage 相关阅读 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars3.githubusercontent.com/u/10380760?v=3&s=466"
+               alt="avilang" />
+          <p class="site-author-name" itemprop="name">avilang</p>
+          <p class="site-description motion-element" itemprop="description">爱折腾，爱分享，爱学习</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/avilang" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随笔"><span class="nav-number">2.</span> <span class="nav-text">随笔</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#严格模式-use-strict"><span class="nav-number">2.1.</span> <span class="nav-text">严格模式 (use strict)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#包装对象"><span class="nav-number">2.2.</span> <span class="nav-text">包装对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数字类型"><span class="nav-number">2.3.</span> <span class="nav-text">数字类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标记语句-labeled-statement"><span class="nav-number">2.4.</span> <span class="nav-text">标记语句 (labeled statement)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#判断-NaN-的方法"><span class="nav-number">2.5.</span> <span class="nav-text">判断 NaN 的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符处理"><span class="nav-number">2.6.</span> <span class="nav-text">字符处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组本质"><span class="nav-number">2.7.</span> <span class="nav-text">数组本质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运算符"><span class="nav-number">2.8.</span> <span class="nav-text">运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#且运算符-amp-amp"><span class="nav-number">2.8.1.</span> <span class="nav-text">且运算符 (&amp;&amp;)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#或运算符"><span class="nav-number">2.8.2.</span> <span class="nav-text">或运算符 (||)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Math-对象"><span class="nav-number">2.9.</span> <span class="nav-text">Math 对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON-对象"><span class="nav-number">2.10.</span> <span class="nav-text">JSON 对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RegExp-对象"><span class="nav-number">2.11.</span> <span class="nav-text">RegExp 对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#new-命令"><span class="nav-number">2.12.</span> <span class="nav-text">new 命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Function-prototype-call"><span class="nav-number">2.13.</span> <span class="nav-text">Function.prototype.call</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#instanceof-运算符深入剖析"><span class="nav-number">2.14.</span> <span class="nav-text">instanceof 运算符深入剖析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Event-对象"><span class="nav-number">2.15.</span> <span class="nav-text">Event 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#自定义事件和事件模拟"><span class="nav-number">2.15.1.</span> <span class="nav-text">自定义事件和事件模拟</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#事件的传播"><span class="nav-number">2.15.2.</span> <span class="nav-text">事件的传播</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定时器"><span class="nav-number">2.16.</span> <span class="nav-text">定时器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript-的异步处理"><span class="nav-number">2.17.</span> <span class="nav-text">JavaScript 的异步处理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#定时器方式"><span class="nav-number">2.17.1.</span> <span class="nav-text">定时器方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#回调函数"><span class="nav-number">2.17.2.</span> <span class="nav-text">回调函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#事件监听"><span class="nav-number">2.17.3.</span> <span class="nav-text">事件监听</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#发布-订阅模式"><span class="nav-number">2.17.4.</span> <span class="nav-text">发布/订阅模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Promise-对象"><span class="nav-number">2.17.5.</span> <span class="nav-text">Promise 对象</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript和有限状态机"><span class="nav-number">2.18.</span> <span class="nav-text">JavaScript和有限状态机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Web-Worker"><span class="nav-number">2.19.</span> <span class="nav-text">Web Worker</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#值传递-OR-引用传递"><span class="nav-number">2.20.</span> <span class="nav-text">值传递 OR 引用传递</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">avilang</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
