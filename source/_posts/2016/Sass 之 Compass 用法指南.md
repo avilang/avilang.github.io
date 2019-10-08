@@ -5,7 +5,7 @@ date: 2016-11-03
 
 ### 什么是Compass
 
-简单的说 Compass 是 Sass 的工具库，有点像 Javascript 和 JQuery 的关系。学会了 Compass 能大大提升 CSS 的开放效率。若不清楚什么是 Sass ，可移步阅读 [SASS 用法指南](http://avilang.me/2016/SASS%20%E7%94%A8%E6%B3%95%E6%8C%87%E5%8D%97/)
+简单的说 Compass 是 Sass 的工具库，有点像 Javascript 和 JQuery 的关系。学会了 Compass 能大大提升 CSS 的开放效率。若不清楚什么是 Sass ，可移步阅读 [SASS 用法指南](https://avilang.github.io/blog/2016/SASS%20%E7%94%A8%E6%B3%95%E6%8C%87%E5%8D%97/)
 
 ### 安装
 

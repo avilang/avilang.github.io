@@ -21,7 +21,6 @@
     "start": "hexo server",
     "clean": "hexo clean",
     "generate": "hexo generate",
-    "deploy": "hexo deploy",
-    "ok": "hexo clean && hexo generate && hexo deploy"
+    "deploy": "hexo clean && hexo generate && hexo deploy"
   }
 }
