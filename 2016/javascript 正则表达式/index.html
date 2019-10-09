@@ -69,7 +69,7 @@
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+<link href="/blog/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
 
@@ -87,11 +87,11 @@
 <meta name="description" content="前言之前已写《PHP 正则表达式笔记》一文介绍正则表达式，本篇仅是作知识点的补充，文章逻辑编排版较随意。 创建一个正则表达式你可以通过下面两种方法创建一个正则表达式: 1、使用一个正则表达式字面量，如下所示 1var re = /ab+c/; 2、调用 RegExp 对象的构造函数，如下所示 1var re = new RegExp(&quot;ab+c&quot;); 正则表达式字面量在脚本加载后编译,使用构造函数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javascript 正则表达式">
-<meta property="og:url" content="http://avilang.me/2016/javascript 正则表达式/index.html">
+<meta property="og:url" content="https://avilang.github.io/blog/2016/javascript 正则表达式/index.html">
 <meta property="og:site_name" content="Hello avilang">
 <meta property="og:description" content="前言之前已写《PHP 正则表达式笔记》一文介绍正则表达式，本篇仅是作知识点的补充，文章逻辑编排版较随意。 创建一个正则表达式你可以通过下面两种方法创建一个正则表达式: 1、使用一个正则表达式字面量，如下所示 1var re = /ab+c/; 2、调用 RegExp 对象的构造函数，如下所示 1var re = new RegExp(&quot;ab+c&quot;); 正则表达式字面量在脚本加载后编译,使用构造函数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-26T06:42:04.000Z">
+<meta property="og:updated_time" content="2019-10-08T08:05:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript 正则表达式">
 <meta name="twitter:description" content="前言之前已写《PHP 正则表达式笔记》一文介绍正则表达式，本篇仅是作知识点的补充，文章逻辑编排版较随意。 创建一个正则表达式你可以通过下面两种方法创建一个正则表达式: 1、使用一个正则表达式字面量，如下所示 1var re = /ab+c/; 2、调用 RegExp 对象的构造函数，如下所示 1var re = new RegExp(&quot;ab+c&quot;); 正则表达式字面量在脚本加载后编译,使用构造函数">
@@ -115,7 +115,7 @@
 
 
 
-  <link rel="canonical" href="http://avilang.me/2016/javascript 正则表达式/"/>
+  <link rel="canonical" href="https://avilang.github.io/blog/2016/javascript 正则表达式/"/>
 
   <title> javascript 正则表达式 | Hello avilang </title>
 </head>
@@ -146,7 +146,7 @@
   
 
   <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
+    <a href="/blog/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">Hello avilang</span>
       <span class="logo-line-after"><i></i></span>
@@ -171,7 +171,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/blog/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -181,7 +181,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/blog/archives" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -267,7 +267,7 @@
       
 
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>之前已写<a href="http://avilang.me/2016/PHP%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%AC%94%E8%AE%B0/">《PHP 正则表达式笔记》</a>一文介绍正则表达式，本篇仅是作知识点的补充，文章逻辑编排版较随意。</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>之前已写<a href="https://avilang.github.io/blog/2016/PHP%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%AC%94%E8%AE%B0/">《PHP 正则表达式笔记》</a>一文介绍正则表达式，本篇仅是作知识点的补充，文章逻辑编排版较随意。</p>
 <h3 id="创建一个正则表达式"><a href="#创建一个正则表达式" class="headerlink" title="创建一个正则表达式"></a>创建一个正则表达式</h3><p>你可以通过下面两种方法创建一个正则表达式:</p>
 <p>1、使用一个正则表达式字面量，如下所示</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> re = <span class="regexp">/ab+c/</span>;</span><br></pre></td></tr></table></figure>
@@ -323,7 +323,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/PHP 正则表达式笔记/" rel="next" title="PHP 正则表达式笔记">
+              <a href="/blog/2016/PHP 正则表达式笔记/" rel="next" title="PHP 正则表达式笔记">
                 <i class="fa fa-chevron-left"></i> PHP 正则表达式笔记
               </a>
             
@@ -331,7 +331,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/RequireJS 笔记/" rel="prev" title="RequireJS 笔记">
+              <a href="/blog/2016/RequireJS 笔记/" rel="prev" title="RequireJS 笔记">
                 RequireJS 笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -400,7 +400,7 @@
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
-            <a href="/archives">
+            <a href="/blog/archives">
               <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
@@ -534,25 +534,25 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.0.1"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.0.1"></script>
 
 
 
   
+  
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.0.1"></script>
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.0.1"></script>
 
 
 
