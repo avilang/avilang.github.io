@@ -274,7 +274,7 @@
         
           
             <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>组合模式(Composite Pattern)：组合多个对象形成树形结构以表示具有“整体—部分”关系的层次结构。组合模式对单个对象（即叶子对象）和组合对象（即容器对象）的使用具有一致性，组合模式又可以称为“整体—部分”(Part-Whole)模式，它是一种对象结构型模式。</p>
-<p><img src="/myimages/2017-10-19_01.jpg" alt="" title="组合模式结构图"></p>
+<p><img src="/blog/myimages/2017-10-19_01.jpg" alt="" title="组合模式结构图"></p>
 <p>在组合模式结构图中包含如下几个角色：</p>
 <ul>
 <li>Component（抽象构件）：它可以是接口或抽象类，为叶子构件和容器构件对象声明接口，在该角色中可以包含所有子类共有行为的声明和实现。在抽象构件中定义了访问及管理它的子构件的方法，如增加子构件、删除子构件、获取子构件等。</li>
@@ -382,7 +382,7 @@
         
           
             <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p><a href="https://zh.wikipedia.org/wiki/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F" target="_blank" rel="noopener">代理模式</a>为其他对象提供一种代理以控制对这个对象的访问。</p>
-<p><img src="/myimages/2017-09-01_01.png" alt="" title="代理模式的统一建模语言(UML)图"></p>
+<p><img src="/blog/myimages/2017-09-01_01.png" alt="" title="代理模式的统一建模语言(UML)图"></p>
 <p>根据代理模式的使用目的不同，代理模式又可以分为多种类型</p>
 <ul>
 <li>远程代理 (Remote Proxy)</li>
@@ -1139,7 +1139,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">instance_of</span>(<span class="params">L, R</span>) </span>&#123;  <span class="comment">// L 表示左表达式, R 表示右表达式</span></span><br><span class="line">  <span class="keyword">var</span> O = R.prototype;  <span class="comment">// 取 R 的显示原型</span></span><br><span class="line">  L = L.__proto__;  <span class="comment">// 取 L 的隐式原型</span></span><br><span class="line">  <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (L === <span class="literal">null</span>)</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span> (O === L)  <span class="comment">// 这里重点：当 O 严格等于 L 时，返回 true</span></span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    L = L.__proto__;</span><br><span class="line">  &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 <p>JavaScript 原型继承机制：在原型继承结构里面，规范中用 <code>[[Prototype]]</code> 表示对象隐式的原型，在 JavaScript 中用 <strong>proto</strong> 表示。所有 JavaScript 对象都有 <code>__proto__</code> 属性，但只有 <code>Object.prototype.__proto__</code> 为 <code>null</code> 这个属性指向它的原型对象，即构造函数的 prototype<br>属性。</p>
 <p>原型继承图</p>
-<p><img src="/myimages/2016-11-04_01.jpg" alt="" title="JavaScript 原型链"></p>
+<p><img src="/blog/myimages/2016-11-04_01.jpg" alt="" title="JavaScript 原型链"></p>
 <p>下面简要分析下 <code>console.log(Foo instanceof Foo)</code></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 为了方便表述，首先区分左侧表达式和右侧表达式</span></span><br><span class="line"> FooL = Foo, FooR = Foo;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 下面根据规范逐步推演</span></span><br><span class="line"> O = FooR.prototype = Foo.prototype</span><br><span class="line"> L = FooL.__proto__ = <span class="built_in">Function</span>.prototype</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 第一次判断</span></span><br><span class="line"> O != L</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 循环再次查找 L 是否还有 __proto__</span></span><br><span class="line"> L = <span class="built_in">Function</span>.prototype.__proto__ = <span class="built_in">Object</span>.prototype</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 第二次判断</span></span><br><span class="line"> O != L</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 再次循环查找 L 是否还有 __proto__</span></span><br><span class="line"> L = <span class="built_in">Object</span>.prototype.__proto__ = <span class="literal">null</span></span><br><span class="line"></span><br><span class="line"> <span class="comment">// 第三次判断</span></span><br><span class="line"> L == <span class="literal">null</span></span><br><span class="line"></span><br><span class="line"> <span class="comment">// 返回 false</span></span><br></pre></td></tr></table></figure>
 <p>再看看下面例子的运行结果，帮助理解</p>
@@ -1317,7 +1317,7 @@
       
         
           
-            <h3 id="什么是Compass"><a href="#什么是Compass" class="headerlink" title="什么是Compass"></a>什么是Compass</h3><p>简单的说 Compass 是 Sass 的工具库，有点像 Javascript 和 JQuery 的关系。学会了 Compass 能大大提升 CSS 的开放效率。若不清楚什么是 Sass ，可移步阅读 <a href="https://avilang.github.io/blog/2016/SASS%20%E7%94%A8%E6%B3%95%E6%8C%87%E5%8D%97/">SASS 用法指南</a></p>
+            <h3 id="什么是Compass"><a href="#什么是Compass" class="headerlink" title="什么是Compass"></a>什么是Compass</h3><p>简单的说 Compass 是 Sass 的工具库，有点像 Javascript 和 JQuery 的关系。学会了 Compass 能大大提升 CSS 的开放效率。若不清楚什么是 Sass ，可移步阅读 <a href="/blog/2016/SASS%20%E7%94%A8%E6%B3%95%E6%8C%87%E5%8D%97/">SASS 用法指南</a></p>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>Compass 是用 Ruby 语言开发的，所以安装它之前，必须安装 Ruby 。在命名行下输入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gem install compass</span><br></pre></td></tr></table></figure>
 <h3 id="项目初始化"><a href="#项目初始化" class="headerlink" title="项目初始化"></a>项目初始化</h3><p>要创建一个你的 Compass 项目，假定它的名字叫做 testCompass，那么在命令行键入</p>
