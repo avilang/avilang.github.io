@@ -69,7 +69,7 @@
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
-<link href="/blog/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
 
@@ -87,7 +87,7 @@
 <meta name="description" content="爱折腾，爱分享，爱学习">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Hello avilang">
-<meta property="og:url" content="https://avilang.github.io/blog/page/2/index.html">
+<meta property="og:url" content="https://avilang.github.io/page/2/index.html">
 <meta property="og:site_name" content="Hello avilang">
 <meta property="og:description" content="爱折腾，爱分享，爱学习">
 <meta property="og:locale" content="zh-Hans">
@@ -114,7 +114,7 @@
 
 
 
-  <link rel="canonical" href="https://avilang.github.io/blog/page/2/"/>
+  <link rel="canonical" href="https://avilang.github.io/page/2/"/>
 
   <title> Hello avilang </title>
 </head>
@@ -147,7 +147,7 @@
   
 
   <div class="custom-logo-site-title">
-    <a href="/blog/"  class="brand" rel="start">
+    <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">Hello avilang</span>
       <span class="logo-line-after"><i></i></span>
@@ -172,7 +172,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/blog/" rel="section">
+          <a href="/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -182,7 +182,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/blog/archives" rel="section">
+          <a href="/archives" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -229,7 +229,7 @@
             
               
                 
-                <a class="post-title-link" href="/blog/2016/RequireJS 笔记/" itemprop="url">
+                <a class="post-title-link" href="/2016/RequireJS 笔记/" itemprop="url">
                   RequireJS 笔记
                 </a>
               
@@ -369,7 +369,7 @@
             
               
                 
-                <a class="post-title-link" href="/blog/2016/javascript 正则表达式/" itemprop="url">
+                <a class="post-title-link" href="/2016/javascript 正则表达式/" itemprop="url">
                   javascript 正则表达式
                 </a>
               
@@ -493,7 +493,7 @@
             
               
                 
-                <a class="post-title-link" href="/blog/2016/PHP 正则表达式笔记/" itemprop="url">
+                <a class="post-title-link" href="/2016/PHP 正则表达式笔记/" itemprop="url">
                   PHP 正则表达式笔记
                 </a>
               
@@ -833,7 +833,7 @@
             
               
                 
-                <a class="post-title-link" href="/blog/2016/JavaScript 秘密花园/" itemprop="url">
+                <a class="post-title-link" href="/2016/JavaScript 秘密花园/" itemprop="url">
                   JavaScript 秘密花园
                 </a>
               
@@ -1378,137 +1378,7 @@
             
               
                 
-                <a class="post-title-link" href="/blog/2016/HTTP 协议/" itemprop="url">
-                  HTTP 协议
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-06T00:00:00+08:00" content="2016-10-06">
-              2016-10-06
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>HTTP 协议对应 Web 开发者来说都必须要了解的，无论技术背景或首选编程语言是什么，”请求－响应” 对话是驱动 Web 上通信的基础。</p>
-<h3 id="HTTP-概述"><a href="#HTTP-概述" class="headerlink" title="HTTP 概述"></a>HTTP 概述</h3><p>HTTP 协议是 Hyper Text Transfer Protocol（超文本传输协议）的缩写。通常，由 HTTP 客户端发起一个请求，创建一个到服务器指定端口（默认是 80 端口）的 TCP 连接。HTTP 服务器则在那个端口监听客户端的请求。一旦收到请求，服务器会向客户端返回一个状态，比如 “HTTP/1.1 200 OK” ，以及返回的内容，如请求的文件、错误消息、或者其它信息。</p>
-<p>平时我们在浏览器上输入网址，按回车就能浏览网页内容。这过程中主要分为两个部分 “请求” （浏览器向服务器发送的消息） 和 “响应” （服务器将处理结果返回给浏览器）。</p>
-<h3 id="HTTP-请求"><a href="#HTTP-请求" class="headerlink" title="HTTP 请求"></a>HTTP 请求</h3><p>HTTP 请求分为四格部分：请求行, 请求头, 空行, 请求主体，下面直接给出一个示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GET /hello.txt HTTP/1.1</span><br><span class="line">Host: www.example.com</span><br></pre></td></tr></table></figure>
-<p>上示例中第一行为请求行，第二行为请求头，末尾有一个空行（即空行，必须要有）。</p>
-<ul>
-<li><p>请求行包含：请求方法, 请求资源, 协议版本<br>常见的请求方法有 <code>GET</code> <code>POST</code> <code>HEAD</code> 等<br>协议版本有 0.9,  HTTP/1.0, HTTP/1.1</p>
-</li>
-<li><p>在 HTTP/1.1协议中，所有的请求头，除 Host 外，都是可选的。点击 <a href="https://zh.wikipedia.org/wiki/HTTP%E5%A4%B4%E5%AD%97%E6%AE%B5%E5%88%97%E8%A1%A8" target="_blank" rel="noopener">HTTP头字段</a> 了解更多头字段。下面给出常用的请求头：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">host：请求的域名，必须要有</span><br><span class="line">accept-encoding：可以接受的编码类型（不是字符编码，指的是文件格式）</span><br><span class="line">connection：连接方式，1.0版本close，1.1版本keep-alive</span><br><span class="line">accept-language：可以接收的语言类型</span><br><span class="line">cookie：之前由服务器通过 Set-Cookie 发送的一个超文本传输协议 Cookie</span><br><span class="line">user-agent：客户端信息</span><br><span class="line">content-length：表示的请求体的长度，单位是字节</span><br></pre></td></tr></table></figure>
-<h3 id="HTTP-响应"><a href="#HTTP-响应" class="headerlink" title="HTTP 响应"></a>HTTP 响应</h3><p>HTTP 响应分为四个部分：状态行, 响应头, 空行, 消息体（响应内容） 示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Date: Mon, 27 Jul 2009 12:28:53 GMT</span><br><span class="line">Server: Apache</span><br><span class="line">Last-Modified: Wed, 22 Jul 2009 19:15:56 GMT</span><br><span class="line">ETag: &quot;34aa387-d-1568eb00&quot;</span><br><span class="line">Accept-Ranges: bytes</span><br><span class="line">Content-Length: 51</span><br><span class="line">Vary: Accept-Encoding</span><br><span class="line">Content-Type: text/plain</span><br><span class="line"></span><br><span class="line">Hello World! My payload includes a trailing CRLF.</span><br></pre></td></tr></table></figure>
-<p>上示例中第一行为状态行，第二行至第九行处为响应头，第十行为空行，最后一行为消息体。</p>
-<ul>
-<li><p>状态行包含：协议版本, 状态码, 状态描述。其中有关状态码更多的介绍可移步阅读 <a href="https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81" target="_blank" rel="noopener">HTTP状态码</a></p>
-</li>
-<li><p>响应头更多信息可点击上文中的 “HTTP头字段” 链接查看。下面给出常见的响应头：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">server：服务器信息</span><br><span class="line">date：服务器响应的时间</span><br><span class="line">last-modified：当前请求文件最后被修改的时间</span><br><span class="line">content-length：响应体的数据长度，单位是字节</span><br><span class="line">content-type：响应体的类型</span><br><span class="line">location：重定向</span><br><span class="line">cache-control：缓存控制</span><br></pre></td></tr></table></figure>
-<p>其中一个重要的 HTTP 响应头 Content-Type 服务器上的每个资源都可以以不同的格式返回给客户端，如 HTML、XML 或 JSON 等；通过在 Content-Type 里设置如 text/html 这样的互联网媒体类型，可以告知客户端，服务器给出的响应格式是什么。常用的媒体类型可移步阅读 <a href="https://zh.wikipedia.org/wiki/%E4%BA%92%E8%81%94%E7%BD%91%E5%AA%92%E4%BD%93%E7%B1%BB%E5%9E%8B" target="_blank" rel="noopener">互联网媒体类型</a></p>
-<h3 id="拓展知识"><a href="#拓展知识" class="headerlink" title="拓展知识"></a>拓展知识</h3><p><a href="https://www.qcloud.com/document/product/214/4149" target="_blank" rel="noopener">HTTP 长连接说明</a>，还有文中提到的“TCP\IP三次握手连接”<br>其中还有长轮询、服务器发送事件、WebSocket等知识点都与 HTTP 相关，在这就不拓展开了，读者可自行谷歌</p>
-<h3 id="相关阅读"><a href="#相关阅读" class="headerlink" title="相关阅读"></a>相关阅读</h3><ul>
-<li><a href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE" target="_blank" rel="noopener">超文本传输协议</a></li>
-<li><a href="https://zh.wikipedia.org/wiki/WebSocket" target="_blank" rel="noopener">WebSocket</a></li>
-<li><a href="https://zh.wikipedia.org/wiki/Comet_%28web%E6%8A%80%E6%9C%AF%29" target="_blank" rel="noopener">Comet (web技术)</a></li>
-<li><a href="https://zh.wikipedia.org/wiki/%E6%8E%A8%E9%80%81%E6%8A%80%E6%9C%AF" target="_blank" rel="noopener">推送技术</a></li>
-<li><a href="http://www.runoob.com/http/http-tutorial.html" target="_blank" rel="noopener">HTTP 教程</a></li>
-<li><a href="http://blog.csdn.net/u012545279/article/details/17579155" target="_blank" rel="noopener">写给前端的http详解</a></li>
-<li><a href="http://blog.csdn.net/zfrong/article/details/6070608" target="_blank" rel="noopener">HTTP协议头部与Keep-Alive模式详解</a></li>
-<li><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching?hl=zh-cn" target="_blank" rel="noopener">HTTP 缓存</a></li>
-<li><a href="http://www.alloyteam.com/2012/03/web-cache-1-web-cache-overview/" target="_blank" rel="noopener">Web缓存机制系列</a></li>
-<li><a href="https://zh.wikipedia.org/wiki/HTTP%E6%8C%81%E4%B9%85%E8%BF%9E%E6%8E%A5" target="_blank" rel="noopener">HTTP持久连接</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blog/2016/MarkDown 学习笔记/" itemprop="url">
+                <a class="post-title-link" href="/2016/MarkDown 学习笔记/" itemprop="url">
                   MarkDown 学习笔记
                 </a>
               
@@ -1651,7 +1521,137 @@
             
               
                 
-                <a class="post-title-link" href="/blog/2016/常用 HTML 头部标签解析/" itemprop="url">
+                <a class="post-title-link" href="/2016/HTTP 协议/" itemprop="url">
+                  HTTP 协议
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-06T00:00:00+08:00" content="2016-10-06">
+              2016-10-06
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>HTTP 协议对应 Web 开发者来说都必须要了解的，无论技术背景或首选编程语言是什么，”请求－响应” 对话是驱动 Web 上通信的基础。</p>
+<h3 id="HTTP-概述"><a href="#HTTP-概述" class="headerlink" title="HTTP 概述"></a>HTTP 概述</h3><p>HTTP 协议是 Hyper Text Transfer Protocol（超文本传输协议）的缩写。通常，由 HTTP 客户端发起一个请求，创建一个到服务器指定端口（默认是 80 端口）的 TCP 连接。HTTP 服务器则在那个端口监听客户端的请求。一旦收到请求，服务器会向客户端返回一个状态，比如 “HTTP/1.1 200 OK” ，以及返回的内容，如请求的文件、错误消息、或者其它信息。</p>
+<p>平时我们在浏览器上输入网址，按回车就能浏览网页内容。这过程中主要分为两个部分 “请求” （浏览器向服务器发送的消息） 和 “响应” （服务器将处理结果返回给浏览器）。</p>
+<h3 id="HTTP-请求"><a href="#HTTP-请求" class="headerlink" title="HTTP 请求"></a>HTTP 请求</h3><p>HTTP 请求分为四格部分：请求行, 请求头, 空行, 请求主体，下面直接给出一个示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GET /hello.txt HTTP/1.1</span><br><span class="line">Host: www.example.com</span><br></pre></td></tr></table></figure>
+<p>上示例中第一行为请求行，第二行为请求头，末尾有一个空行（即空行，必须要有）。</p>
+<ul>
+<li><p>请求行包含：请求方法, 请求资源, 协议版本<br>常见的请求方法有 <code>GET</code> <code>POST</code> <code>HEAD</code> 等<br>协议版本有 0.9,  HTTP/1.0, HTTP/1.1</p>
+</li>
+<li><p>在 HTTP/1.1协议中，所有的请求头，除 Host 外，都是可选的。点击 <a href="https://zh.wikipedia.org/wiki/HTTP%E5%A4%B4%E5%AD%97%E6%AE%B5%E5%88%97%E8%A1%A8" target="_blank" rel="noopener">HTTP头字段</a> 了解更多头字段。下面给出常用的请求头：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">host：请求的域名，必须要有</span><br><span class="line">accept-encoding：可以接受的编码类型（不是字符编码，指的是文件格式）</span><br><span class="line">connection：连接方式，1.0版本close，1.1版本keep-alive</span><br><span class="line">accept-language：可以接收的语言类型</span><br><span class="line">cookie：之前由服务器通过 Set-Cookie 发送的一个超文本传输协议 Cookie</span><br><span class="line">user-agent：客户端信息</span><br><span class="line">content-length：表示的请求体的长度，单位是字节</span><br></pre></td></tr></table></figure>
+<h3 id="HTTP-响应"><a href="#HTTP-响应" class="headerlink" title="HTTP 响应"></a>HTTP 响应</h3><p>HTTP 响应分为四个部分：状态行, 响应头, 空行, 消息体（响应内容） 示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Date: Mon, 27 Jul 2009 12:28:53 GMT</span><br><span class="line">Server: Apache</span><br><span class="line">Last-Modified: Wed, 22 Jul 2009 19:15:56 GMT</span><br><span class="line">ETag: &quot;34aa387-d-1568eb00&quot;</span><br><span class="line">Accept-Ranges: bytes</span><br><span class="line">Content-Length: 51</span><br><span class="line">Vary: Accept-Encoding</span><br><span class="line">Content-Type: text/plain</span><br><span class="line"></span><br><span class="line">Hello World! My payload includes a trailing CRLF.</span><br></pre></td></tr></table></figure>
+<p>上示例中第一行为状态行，第二行至第九行处为响应头，第十行为空行，最后一行为消息体。</p>
+<ul>
+<li><p>状态行包含：协议版本, 状态码, 状态描述。其中有关状态码更多的介绍可移步阅读 <a href="https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81" target="_blank" rel="noopener">HTTP状态码</a></p>
+</li>
+<li><p>响应头更多信息可点击上文中的 “HTTP头字段” 链接查看。下面给出常见的响应头：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">server：服务器信息</span><br><span class="line">date：服务器响应的时间</span><br><span class="line">last-modified：当前请求文件最后被修改的时间</span><br><span class="line">content-length：响应体的数据长度，单位是字节</span><br><span class="line">content-type：响应体的类型</span><br><span class="line">location：重定向</span><br><span class="line">cache-control：缓存控制</span><br></pre></td></tr></table></figure>
+<p>其中一个重要的 HTTP 响应头 Content-Type 服务器上的每个资源都可以以不同的格式返回给客户端，如 HTML、XML 或 JSON 等；通过在 Content-Type 里设置如 text/html 这样的互联网媒体类型，可以告知客户端，服务器给出的响应格式是什么。常用的媒体类型可移步阅读 <a href="https://zh.wikipedia.org/wiki/%E4%BA%92%E8%81%94%E7%BD%91%E5%AA%92%E4%BD%93%E7%B1%BB%E5%9E%8B" target="_blank" rel="noopener">互联网媒体类型</a></p>
+<h3 id="拓展知识"><a href="#拓展知识" class="headerlink" title="拓展知识"></a>拓展知识</h3><p><a href="https://www.qcloud.com/document/product/214/4149" target="_blank" rel="noopener">HTTP 长连接说明</a>，还有文中提到的“TCP\IP三次握手连接”<br>其中还有长轮询、服务器发送事件、WebSocket等知识点都与 HTTP 相关，在这就不拓展开了，读者可自行谷歌</p>
+<h3 id="相关阅读"><a href="#相关阅读" class="headerlink" title="相关阅读"></a>相关阅读</h3><ul>
+<li><a href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE" target="_blank" rel="noopener">超文本传输协议</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/WebSocket" target="_blank" rel="noopener">WebSocket</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/Comet_%28web%E6%8A%80%E6%9C%AF%29" target="_blank" rel="noopener">Comet (web技术)</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E6%8E%A8%E9%80%81%E6%8A%80%E6%9C%AF" target="_blank" rel="noopener">推送技术</a></li>
+<li><a href="http://www.runoob.com/http/http-tutorial.html" target="_blank" rel="noopener">HTTP 教程</a></li>
+<li><a href="http://blog.csdn.net/u012545279/article/details/17579155" target="_blank" rel="noopener">写给前端的http详解</a></li>
+<li><a href="http://blog.csdn.net/zfrong/article/details/6070608" target="_blank" rel="noopener">HTTP协议头部与Keep-Alive模式详解</a></li>
+<li><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching?hl=zh-cn" target="_blank" rel="noopener">HTTP 缓存</a></li>
+<li><a href="http://www.alloyteam.com/2012/03/web-cache-1-web-cache-overview/" target="_blank" rel="noopener">Web缓存机制系列</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/HTTP%E6%8C%81%E4%B9%85%E8%BF%9E%E6%8E%A5" target="_blank" rel="noopener">HTTP持久连接</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/常用 HTML 头部标签解析/" itemprop="url">
                   常用 HTML 头部标签解析
                 </a>
               
@@ -1927,7 +1927,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/blog/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
   </nav>
 
 
@@ -1967,7 +1967,7 @@
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
-            <a href="/blog/archives">
+            <a href="/archives">
               <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
@@ -2090,21 +2090,21 @@
   
 
 
-  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.0.1"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
 
-  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.0.1"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
 
 
 
   
-  
-
   
 
   
 
+  
 
-  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
 
 
 
