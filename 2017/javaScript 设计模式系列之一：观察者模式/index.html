@@ -69,7 +69,7 @@
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+<link href="/blog/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
 
@@ -87,7 +87,7 @@
 <meta name="description" content="介绍观察者模式又叫发布订阅模式(Publish/Subscribe)，一个目标对象管理所有相依于它的观察者对象。该模式中存在两个角色：观察者和被观察者。目标对象与观察者之间的抽象耦合关系能够单独扩展以及重用。 该模式通常有两种实现策略：”推”(push) 和 “拉”(pull)  例：对于报社可能雇佣投送人员四处送报给订阅者，这就是主动推送。而对于规模小的报社没有足够的资源去雇佣投送员，这时候可以">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javaScript 设计模式系列之一：观察者模式">
-<meta property="og:url" content="https://avilang.github.io/2017/javaScript 设计模式系列之一：观察者模式/index.html">
+<meta property="og:url" content="https://avilang.github.io/blog/2017/javaScript 设计模式系列之一：观察者模式/index.html">
 <meta property="og:site_name" content="Hello avilang">
 <meta property="og:description" content="介绍观察者模式又叫发布订阅模式(Publish/Subscribe)，一个目标对象管理所有相依于它的观察者对象。该模式中存在两个角色：观察者和被观察者。目标对象与观察者之间的抽象耦合关系能够单独扩展以及重用。 该模式通常有两种实现策略：”推”(push) 和 “拉”(pull)  例：对于报社可能雇佣投送人员四处送报给订阅者，这就是主动推送。而对于规模小的报社没有足够的资源去雇佣投送员，这时候可以">
 <meta property="og:locale" content="zh-Hans">
@@ -115,7 +115,7 @@
 
 
 
-  <link rel="canonical" href="https://avilang.github.io/2017/javaScript 设计模式系列之一：观察者模式/"/>
+  <link rel="canonical" href="https://avilang.github.io/blog/2017/javaScript 设计模式系列之一：观察者模式/"/>
 
   <title> javaScript 设计模式系列之一：观察者模式 | Hello avilang </title>
 </head>
@@ -146,7 +146,7 @@
   
 
   <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
+    <a href="/blog/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">Hello avilang</span>
       <span class="logo-line-after"><i></i></span>
@@ -171,7 +171,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/blog/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -181,7 +181,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/blog/archives" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -303,7 +303,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/聊聊 S.O.L.I.D 五大原则/" rel="next" title="聊聊 S.O.L.I.D 五大原则">
+              <a href="/blog/2017/聊聊 S.O.L.I.D 五大原则/" rel="next" title="聊聊 S.O.L.I.D 五大原则">
                 <i class="fa fa-chevron-left"></i> 聊聊 S.O.L.I.D 五大原则
               </a>
             
@@ -311,7 +311,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/javaScript 设计模式系列之二：适配器模式/" rel="prev" title="javaScript 设计模式系列之二：适配器模式">
+              <a href="/blog/2017/javaScript 设计模式系列之二：适配器模式/" rel="prev" title="javaScript 设计模式系列之二：适配器模式">
                 javaScript 设计模式系列之二：适配器模式 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -380,7 +380,7 @@
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
-            <a href="/archives">
+            <a href="/blog/archives">
               <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
@@ -514,25 +514,25 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.0.1"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.0.1"></script>
 
 
 
   
+  
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.0.1"></script>
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.0.1"></script>
 
 
 
